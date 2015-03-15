@@ -3,7 +3,7 @@
 global $app;
 
 $options = array('custom-format');
-$assets = array();
+$assets = array('d3.min.js', 'd3-jetpack.min.js');
 
 foreach ($options as $opt) {
     $assets[] = $opt.'.js';
