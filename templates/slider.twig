@@ -1,0 +1,9 @@
+
+{% if option.type == 'slider' %}
+
+    <label class="control-label">{{ option.label | raw }}:</label>
+    <div class="controls">
+        <input type="range" min="{{ option.min }}" max="{{ option.max }}" step="{{ option.step }}" id="{{ key }}" />
+    </div>
+
+{% endif %}
