@@ -1,0 +1,46 @@
+
+{% if option.type == 'axis-matrix' %}
+
+    <style type="text/css">
+    .vis-option-type-axis-matrix .scroll-box {
+        max-height: 170px;
+        overflow-y: scroll;
+    }
+    .vis-option-type-axis-matrix .table td,
+    .vis-option-type-axis-matrix .table th {
+        font-size: 12px;
+        padding: 4px;
+    }
+    .vis-option-type-axis-matrix .table input {
+        position: relative;
+        top: -3px;
+    }
+    .vis-option-type-axis-matrix .scroll-box table.table-bordered td:first-child,
+    .vis-option-type-axis-matrix .scroll-box table.table-bordered th:first-child {
+        border-left: 0;
+        padding-left: 0;
+    }
+    .vis-option-type-axis-matrix .scroll-box table.table-bordered th + th,
+    .vis-option-type-axis-matrix .scroll-box table.table-bordered td + td {
+        text-align: center;
+    }
+    .vis-option-type-axis-matrix .scroll-box table tbody tr:first-child td {
+        border-top-width: 2px;
+    }
+    </style>
+
+    <div class="scroll-box">
+        <table class="table table-bordered table-striped" style="border:none" id="{{ key }}">
+            <thead>
+                <tr><th>{{ option.label | raw }}</th>
+                {% for axis in option.axes %}
+                <th>{{ axis.label|raw }}</th>
+                {% endfor %}
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+{% endif %}
