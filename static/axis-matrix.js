@@ -19,7 +19,7 @@ $(function() {
                     td = $('<td />').data('axis', axis.id).appendTo(tr);
                 if (_.indexOf(axisMeta.accepts, column.type()) > -1) {
                     $('<input type="radio" name="'+column.name()+'" />')
-                        .prop('checked', column.name() == defCol)
+                        .prop('checked', axisMeta.multiple ? defCol.indexOf(column.name()) > -1 : column.name() == defCol)
                         .appendTo(td)
                         .change(function() {
                             var checked = $(this).prop('checked');
