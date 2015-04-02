@@ -7,8 +7,6 @@ $(function() {
             axesColumns = args.vis.axes(),
             ds = args.chart.dataset();
 
-        console.log(args);
-
         ds.columns().forEach(function(column) {
             var tr = $('<tr />')
                 .data('column', column.name())
@@ -32,7 +30,7 @@ $(function() {
                                 // remove column from all axes
                                 _.each(_axes, function(cols, k) {
                                     if (args.vis.meta.axes[k].multiple) {
-                                        _axes[k] = _axes[k].filter(function(d) {
+                                        if (_axes[k]) _axes[k] = _axes[k].filter(function(d) {
                                             return d != column.name();
                                         });
                                     }
