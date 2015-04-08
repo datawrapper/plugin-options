@@ -19,12 +19,14 @@ $(function() {
                     td = $('<td />').data('axis', axis.id).appendTo(tr);
                 if (_.indexOf(axisMeta.accepts, column.type()) > -1) {
                     $('<input type="radio" name="'+column.name()+'" />')
-                        .prop('checked', axisMeta.multiple ? defCol.indexOf(column.name()) > -1 : column.name() == defCol)
+                        .prop('checked',
+                            defCol ? (axisMeta.multiple ? defCol.indexOf(column.name()) > -1 :
+                                column.name() == defCol) : false)
                         .appendTo(td)
                         .change(function() {
                             var checked = $(this).prop('checked');
                                 _axes = _.clone(args.chart.get('metadata.axes', axesColumns));
-                            console.log(_axes, axis.id);
+
                             if (axisMeta.multiple) {
                                 if (!_axes[axis.id]) _axes[axis.id] = [];
                                 // remove column from all axes
