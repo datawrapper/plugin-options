@@ -3,7 +3,8 @@
 
     <label class="control-label">{{ option.label | raw }}:</label>
     <div class="controls">
-        <input type="range" min="{{ option.min }}" max="{{ option.max }}" step="{{ option.step }}" id="{{ key }}" />
+        <input type="range" style="width:80%" min="{{ option.min }}" max="{{ option.max }}" step="{{ option.step }}" id="{{ key }}" />
+        <span class="value"></span>
     </div>
 
 {% endif %}
