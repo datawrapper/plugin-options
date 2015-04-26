@@ -3,7 +3,8 @@
 
     <label class="control-label">{{ option.label | raw }}:</label>
     <div class="controls">
-        <select id="{{ key }}"></select>
+        <select style="width:50%"  id="{{ key }}"></select>
+        <input style="width:40%" type="text" id="{{ key }}-user" class="hidden" />
     </div>
 
 {% endif %}

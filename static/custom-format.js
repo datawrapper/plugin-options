@@ -42,12 +42,15 @@ $(function() {
             ];
         }
 
-        var select = d3.select('#'+args.key).html('');
+        var select = d3.select('#'+args.key).html(''),
+            input = d3.select('#'+args.key+'-user');
 
         if (formatMap[curVal]) {
             curVal = formatMap[curVal];
             args.chart.set('metadata.visualize.'+args.key, curVal);
         }
+
+        formats.push({ l: '(custom)', f: '--' });
 
         select.selectAll('option')
             .data(formats)
@@ -57,10 +60,30 @@ $(function() {
             .text(function(d) { return d.l; });
 
         select.on('change', function(d) {
-            args.chart.set('metadata.visualize.'+args.key, select.node().value);
+            var v = select.node().value;
+            if (v == '--') {
+                if (!input.node().value) input.node().value = formats[0].f;
+                input.classed('hidden', false);
+                v = input.node().value;
+            } else {
+                input.classed('hidden', true);
+            }
+            args.chart.set('metadata.visualize.'+args.key, v);
         });
 
-        select.node().value = curVal || formats.length ? formats[0].f : '';
+        input.on('change', function(d) {
+            args.chart.set('metadata.visualize.'+args.key, input.node().value);
+        });
+
+        if (_.findWhere(formats, { f: curVal })) {
+            select.node().value = curVal;
+            input.classed('hidden', true);
+        } else {
+            if (curVal) {
+                input.classed('hidden', false).node().value = curVal;
+                select.node().value = '--';
+            } else select.node().value = formats.length ? formats[0].f : '';
+        }
     }
 
     dw.backend.on('sync-option:custom-format', syncCustomFormat);
