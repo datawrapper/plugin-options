@@ -2,7 +2,7 @@
 
 global $app;
 
-$options = array('custom-format', 'slider', 'axis-matrix');
+$options = array('custom-format', 'custom-format-numeral', 'slider', 'axis-matrix');
 $assets = array('d3.min.js', 'd3-jetpack.min.js');
 
 foreach ($options as $opt) {
