@@ -1,7 +1,7 @@
 
 $(function() {
 
-    function syncSlider(args) {
+    function syncAxesMatrix(args) {
         var curVal = args.chart.get('metadata.visualize.'+args.key, args.option.default),
             table = $('#'+args.key+' tbody').html(''),
             axesColumns = args.vis.axes(),
@@ -11,6 +11,7 @@ $(function() {
             var tr = $('<tr />')
                 .data('column', column.name())
                 .appendTo(table);
+
             tr.append('<td>'+column.name()+'</td>');
 
             _.each(args.option.axes, function(axis) {
@@ -44,17 +45,27 @@ $(function() {
                                 if (checked) _axes[axis.id] = column.name();
                             }
                             chart.set('metadata.axes', _axes);
+                            update();
                         });
                 }
             });
         });
 
+        function update() {
+            ds.columns().forEach(function(column) {
+                _.each(args.option.axes, function(axis) {
+                    var axisMeta = args.vis.meta.axes[axis.id],
+                        defCol = axesColumns[axis.id];
+
+                });
+            });
+        }
 
         // input.on('change', function() {
         //     args.chart.set('metadata.visualize.'+args.key, input.val());
         // });
     }
 
-    dw.backend.on('sync-option:axis-matrix', syncSlider);
+    dw.backend.on('sync-option:axis-matrix', syncAxesMatrix);
 
 });
