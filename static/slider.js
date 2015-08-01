@@ -9,7 +9,9 @@ $(function() {
         input.val(curVal);
         display.html(curVal);
 
-        input.on('change', function() {
+        input.on('input', function() {
+            display.html(input.val());
+        }).on('change', function() {
             args.chart.set('metadata.visualize.'+args.key, input.val());
             display.html(input.val());
         });
