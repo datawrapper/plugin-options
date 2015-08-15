@@ -4,8 +4,13 @@ $(function() {
     var substringMatcher = function(items) {
 
         return function findMatches(q, cb) {
-            var matches = [],
+            var matches = [], qRegex;
+
+            try {
                 qRegex = new RegExp(q.split('').join('.*?'), 'i');
+            } catch (e) {
+                qRegex = new RegExp(q, 'i');
+            }
 
             $.each(items, function(i, item) {
                 if (qRegex.test(item.label)) matches.push(item);
