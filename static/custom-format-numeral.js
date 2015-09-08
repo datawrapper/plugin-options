@@ -2,7 +2,7 @@
 $(function() {
 
     function syncCustomFormat(args) {
-        var curVal = args.chart.get('metadata.visualize.'+args.key),
+        var curVal = args.chart.get('metadata.visualize.'+args.key) || '0.0',
             formats = [],
             colids = args.vis.axes()[args.option.axis],
             colid = _.isArray(colids) ? colids[0] : colids,
@@ -17,6 +17,7 @@ $(function() {
         };
 
         if (!colid) return;
+
         if (axesCol.type() == 'number') {
             formats = [
                 { l: '0', f: '0' },
@@ -25,11 +26,12 @@ $(function() {
                 { l: '0.000', f: '0.000' },
                 { l: '0.[0]', f: '0.[0]' },
                 { l: '0.[00]', f: '0.[00]' },
+                { l: '10,000', f: '0,0' },
                 { l: '0%', f: '0%' },
                 { l: '1st', f: '0o' },
-                { l: '0k', f: '0a' },
-                { l: '0.0k', f: '0.[0]a' },
-                { l: '0.00k', f: '0.[00]a' },
+                { l: '123k', f: '0a' },
+                { l: '123.4k', f: '0.[0]a' },
+                { l: '123.45k', f: '0.[00]a' },
             ];
         } else if (axesCol.type() == 'date') {
             formats = [
@@ -45,17 +47,18 @@ $(function() {
         var select = d3.select('#'+args.key).html(''),
             input = d3.select('#'+args.key+'-user');
 
+        formats.push({ l: '(custom)', f: '--' });
+
         if (formatMap[curVal]) {
             curVal = formatMap[curVal];
             args.chart.set('metadata.visualize.'+args.key, curVal);
         }
 
-        formats.push({ l: '(custom)', f: '--' });
-
         select.selectAll('option')
             .data(formats)
             .enter()
             .append('option')
+            .property('selected', function(d) { return d.f == curVal; })
             .attr('value', function(d) { return d.f; })
             .text(function(d) { return d.l; });
 
