@@ -16,5 +16,4 @@ foreach ($options as $opt) {
     );
 }
 
-$plugin->declareAssets($assets, "|/chart/[^/]+/visualize|");
-
+$plugin->declareAssets($assets, "#/chart|map/[^/]+/visualize#");
