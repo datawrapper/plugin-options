@@ -20,7 +20,6 @@ $(function() {
         };
     };
 
-
     function syncTypeahead(args) {
         var curVal = args.chart.get('metadata.visualize.'+args.key, args.option.default),
             input = $('#'+args.key);
