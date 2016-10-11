@@ -28,7 +28,6 @@ $(function() {
                 { l: '0.[0]', f: '0.[0]' },
                 { l: '0.[00]', f: '0.[00]' },
                 { l: '10,000', f: '0,0' },
-                { l: '0%', f: '0%' },
                 { l: '1st', f: '0o' },
                 { l: '123k', f: '0a' },
                 { l: '123.4k', f: '0.[0]a' },
@@ -80,7 +79,9 @@ $(function() {
         });
 
         if (_.findWhere(formats, { f: curVal })) {
-            select.node().value = curVal;
+            if (select.node()) {
+                select.node().value = curVal;
+            }
             input.classed('hidden', true);
         } else {
             if (curVal) {
