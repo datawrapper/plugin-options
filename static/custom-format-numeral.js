@@ -35,12 +35,15 @@ $(function() {
             ];
         } else if (axesCol.type() == 'date') {
             formats = [
-                { l: '2015', f: 'YYYY' },
-                { l: '2015 Q1', f: 'YYYY [Q]Q' },
+                { l: '2015, 2016', f: 'YYYY' },
+                { l: '2015 Q1, 2015 Q2', f: 'YYYY [Q]Q' },
+                { l: '2015, Q2, Q3', f: 'YYYY|\\QQ' },
+                { l: '2015, Feb, Mar', f: 'YYYY|MMM' },
                 { l: '’15', f: '’YY' },
-                { l: 'April', f: 'MMMM' },
-                { l: 'Apr', f: 'MMM' },
-                { l: 'Apr ’15', f: 'MMM ’YY' }
+                { l: 'April, May', f: 'MMMM' },
+                { l: 'Apr, May', f: 'MMM' },
+                { l: 'Apr ’15, May ’15', f: 'MMM ’YY' },
+                { l: 'April, 2, 3', f: 'MMM|DD' },
             ];
         }
 

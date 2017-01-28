@@ -32,9 +32,12 @@ $(function() {
                 { l: '0.00k', f: '.3s' },
             ];
         } else if (axesCol.type() == 'date') {
+            
             formats = [
                 { l: '2015', f: 'YYYY' },
                 { l: '2015 Q1', f: 'YYYY [Q]Q' },
+                { l: '2015/Q1', f: 'YYYY|\QQ' },
+                { l: '2015 Apr', f: 'YYYY|MMM' },
                 { l: '’15', f: '’YY' },
                 { l: 'April', f: 'MMMM' },
                 { l: 'Apr', f: 'MMM' },
