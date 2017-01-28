@@ -2,11 +2,29 @@
 
 global $app;
 
-$options = array('custom-format', 'custom-format-numeral', 'slider', 'axis-matrix', 'typeahead');
-$assets = array('vendor/typeahead.jquery.js');
+$options = [
+    'axis-matrix',
+    'base-color',
+    'checkbox',
+    'column-select',
+    'custom-format',
+    'custom-format-numeral',
+    'custom-range',
+    'number',
+    'radio',
+    'radio-left',
+    'select-axis-column',
+    'select',
+    'separator',
+    'slider',
+    'text',
+    'textarea',
+    'typeahead',
+];
+$assets = ['vendor/typeahead.jquery.js', 'options.js', 'options.css'];
 
 foreach ($options as $opt) {
-    $assets[] = $opt.'.js';
+    if (file_exists (ROOT_PATH . 'plugins/'.$plugin->getName().'/static/'.$opt.'.js')) $assets[] = $opt.'.js';
     DatawrapperHooks::register(
         DatawrapperHooks::VIS_OPTION_CONTROLS,
         function($o, $k) use ($app, $plugin, $opt) {
@@ -15,5 +33,10 @@ foreach ($options as $opt) {
         }
     );
 }
+
+DatawrapperHooks::register('compile_less_files', function() use ($plugin) {
+    return [ROOT_PATH . 'plugins/' . $plugin->getName() . '/less/options.less',];
+});
+
 
 $plugin->declareAssets($assets, "#/chart|map/[^/]+/visualize#");
