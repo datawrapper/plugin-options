@@ -84,6 +84,326 @@
 .vis-option-type-base-color > div > .control-group {
   margin-bottom: 10px;
 }
+.vis-option-type-text-annotations {
+  margin-bottom: 0!important;
+}
+.vis-option-type-text-annotations .text-annotations-row {
+  margin-bottom: 10px;
+}
+.vis-option-type-text-annotations .text-annotations-row label {
+  display: inline-block;
+  font-size: 13px;
+}
+.vis-option-type-text-annotations .text-annotations-row input[type=text] {
+  height: 26px;
+  box-sizing: border-box;
+  padding: 3px 5px;
+  font-size: 13px!important;
+}
+.vis-option-type-text-annotations .text-annotations-row input[type=color] {
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 23px;
+  margin-right: 10px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.vis-option-type-text-annotations .text-annotations-row .input-mini {
+  height: 20px!important;
+  padding: 1px 3px!important;
+  width: 27px;
+  text-align: center;
+}
+.vis-option-type-text-annotations .text-annotations-row .input-mini + .input-mini {
+  margin-left: 0;
+  border-left: 0;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-delete {
+  color: #800;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-group {
+  margin-right: 10px;
+}
+.vis-option-type-text-annotations .text-annotations-row .input-x,
+.vis-option-type-text-annotations .text-annotations-row .input-y {
+  width: 40px;
+  text-align: right;
+}
+.vis-option-type-text-annotations .text-annotations-row .pick-point {
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  padding: 0 3px;
+}
+.vis-option-type-text-annotations .text-annotations-row .pick-point:hover {
+  text-decoration: none;
+  color: #222;
+  cursor: pointer;
+}
+.vis-option-type-text-annotations .text-annotations-row .more-settings {
+  padding: 5px;
+  display: none;
+}
+.vis-option-type-text-annotations .text-annotations-row .more-settings label {
+  font-size: 11px;
+  text-transform: uppercase;
+  padding-right: 4px;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-show-less {
+  display: none;
+}
+.vis-option-type-text-annotations .text-annotations-row.show-more .more-settings {
+  display: block;
+}
+.vis-option-type-text-annotations .text-annotations-row.show-more .btn-show-less {
+  display: inline-block;
+}
+.vis-option-type-text-annotations .text-annotations-row.show-more .btn-show-more {
+  display: none;
+}
+.vis-option-type-text-annotations .text-annotations-row .input-text {
+  width: 160px;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-color i.fa {
+  position: relative;
+  top: -2px;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-color .color {
+  background: black;
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 13px;
+  bottom: 2px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment {
+  display: inline-block;
+  width: 23px;
+  height: 21px;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-left: 5px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment div {
+  position: absolute;
+  border: 1px solid #999;
+  background: white;
+  width: 3px;
+  z-index: 1;
+  height: 3px;
+  cursor: pointer;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment div:hover {
+  border-color: #555;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .bg {
+  background: transparent;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  cursor: default;
+  z-index: 0;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .top {
+  top: 0px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .middle {
+  top: 50%;
+  margin-top: -3px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .bottom {
+  bottom: 0px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .left {
+  left: 0px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .center {
+  left: 50%;
+  margin-left: -3px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment .right {
+  right: 0px;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.tl .top.left {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.tc .top.center {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.tr .top.right {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.ml .middle.left {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.mc .middle.center {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.mr .middle.right {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.bl .bottom.left {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.bc .bottom.center {
+  background: #999;
+}
+.vis-option-type-text-annotations .text-annotations-row .text-alignment.br .bottom.right {
+  background: #999;
+}
+.vis-option-type-range-annotations {
+  margin-bottom: 0!important;
+}
+.vis-option-type-range-annotations .range-annotations-row {
+  margin-bottom: 10px;
+}
+.vis-option-type-range-annotations .range-annotations-row .range-type {
+  display: inline-block;
+  width: 23px;
+  height: 21px;
+  position: relative;
+  vertical-align: middle;
+  margin-right: 3px;
+  margin-left: 5px;
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+.vis-option-type-range-annotations .range-annotations-row .range-type:before,
+.vis-option-type-range-annotations .range-annotations-row .range-type:after {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40%;
+  bottom: 20%;
+  background: rgba(0, 0, 0, 0.05);
+}
+.vis-option-type-range-annotations .range-annotations-row .range-type:after {
+  left: 20%;
+  right: 45%;
+  top: 0;
+  bottom: 0;
+}
+.vis-option-type-range-annotations .range-annotations-row .range-type.range-type-x:after {
+  background: rgba(0, 136, 204, 0.2);
+  z-index: 2;
+}
+.vis-option-type-range-annotations .range-annotations-row .range-type.range-type-y:before {
+  background: rgba(0, 136, 204, 0.2);
+  z-index: 2;
+}
+.vis-option-type-range-annotations .range-annotations-row label {
+  display: inline-block;
+  font-size: 13px;
+}
+.vis-option-type-range-annotations .range-annotations-row input[type=text] {
+  height: 26px;
+  box-sizing: border-box;
+  padding: 3px 5px;
+  font-size: 13px!important;
+}
+.vis-option-type-range-annotations .range-annotations-row input[type=color] {
+  padding: 0;
+  margin: 0;
+  width: 20px;
+  height: 23px;
+  margin-right: 10px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.vis-option-type-range-annotations .range-annotations-row input.opacity {
+  width: 70px;
+}
+.vis-option-type-range-annotations .range-annotations-row label.opacity {
+  width: 20px;
+  height: 9px;
+  position: relative;
+  left: 4px;
+  top: 1px;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.vis-option-type-range-annotations .range-annotations-row label.opacity:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 14px;
+  opacity: 0.4;
+  background: black;
+  left: 7px;
+  border-radius: 0 7px 7px 0;
+}
+.vis-option-type-range-annotations .range-annotations-row label.opacity:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 14px;
+  border: 1px dotted black;
+  left: 0px;
+  opacity: 0.7;
+  box-sizing: border-box;
+  border-radius: 7px 0 0 7px;
+  border-right: 0;
+}
+.vis-option-type-range-annotations .range-annotations-row .input-mini {
+  height: 20px!important;
+  padding: 1px 3px!important;
+  width: 27px;
+  text-align: center;
+}
+.vis-option-type-range-annotations .range-annotations-row .input-mini + .input-mini {
+  margin-left: 0;
+  border-left: 0;
+}
+.vis-option-type-range-annotations .range-annotations-row .input-x0,
+.vis-option-type-range-annotations .range-annotations-row .input-x1 {
+  width: 70px;
+  text-align: right;
+}
+.vis-option-type-range-annotations .range-annotations-row .pick-point {
+  font-size: 12px;
+  color: #888;
+  display: inline-block;
+  padding: 0 3px;
+}
+.vis-option-type-range-annotations .range-annotations-row .pick-point:hover {
+  text-decoration: none;
+  color: #222;
+  cursor: pointer;
+}
+.vis-option-type-range-annotations .range-annotations-row .input-text {
+  width: 180px;
+}
+.vis-option-type-range-annotations .range-annotations-row .btn-color {
+  position: relative;
+  width: 24px;
+}
+.vis-option-type-range-annotations .range-annotations-row .btn-color i.fa {
+  position: relative;
+  top: -2px;
+}
+.vis-option-type-range-annotations .range-annotations-row .btn-color .color {
+  background: black;
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 4px;
+  bottom: 3px;
+  border-radius: 3px;
+}
 .vis-option-type-radio .controls.form-inline {
   vertical-align: top;
 }

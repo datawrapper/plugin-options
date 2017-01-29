@@ -1,0 +1,66 @@
+{% if option.type == 'text-annotations' %}
+
+    <div class="control-group vis-option-type-text-annotations">
+
+        <div class="text-annotations" data-infotext="{% trans "infotext / click-text" %}">
+            <script type="template/html" id="text-annotations-row-tpl">
+                <div class="text-annotations-row">
+                    
+                    <div class="text-alignment {{ '{{ align }}' }}">
+                        <div class="bg"></div>
+                        <div class="top left"></div>
+                        <div class="top center"></div>
+                        <div class="top right"></div>
+                        <div class="middle left"></div>
+                        <div class="middle center"></div>
+                        <div class="middle right"></div>
+                        <div class="bottom left"></div>
+                        <div class="bottom center"></div>
+                        <div class="bottom right"></div>
+                    </div>
+                    <input type="text" placeholder="x" data-var="x" class="input-x" value="{{ '{{ x }}' }}">
+                    <input type="text" placeholder="y" data-var="y" class="input-y" value="{{ '{{ y }}' }}">
+                    <a class="pick-point"><i class="fa fa-mouse-pointer"></i></a>
+
+                    <label>&nbsp;</label>
+                    <textarea placeholder="text" data-var="text" class="input-text" value="{{ '{{ text }}' }}">{{ '{{ text }}' }}</textarea>
+                    <label>&nbsp;</label>
+                    <button class="btn btn-small btn-show-more"><i class="fa fa-angle-double-down"></i></button><button class="btn btn-small btn-show-less"><i class="fa fa-angle-double-up"></i></button>
+
+                    <div class="more-settings">
+                        <label>{{ option.labels.font|raw }}</label>
+                        <div class="btn-group">
+                            <button class="btn btn-mini {{ '{{ bold ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="bold"><i class="fa fa-fw fa-bold"></i></button>
+                            <button class="btn btn-mini {{ '{{ italic ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="italic"><i class="fa fa-fw fa-italic"></i></button>
+                            <button class="btn btn-mini {{ '{{ underline ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="underline"><i class="fa fa-fw fa-underline"></i></button>
+                            <button class="btn btn-mini btn-color" data-var="color">
+                                <i style="color:{{ '{{ color }}' }}" class="fa fa-fw fa-font"></i>
+                                <div style="background:{{ '{{ color }}' }}" class="color"></div>
+                            </button>
+                        </div>
+                        <label><i class="fa fa-text-height"></i></label>
+                        <div class="btn-group">
+                            <button class="btn btn-fs-inc btn-mini"><i class="fa fa-plus"></i></button>
+                            <button class="btn btn-fs-dec btn-mini"><i class="fa fa-minus"></i></button>
+                        </div>
+                        <label>{{ option.labels.offset|raw }}</label>
+                        <input class="input-mini" type="text" placeholder="dx" data-var="dx" class="input-x" value="{{ '{{ dx }}' }}"><input class="input-mini" type="text" placeholder="dy" data-var="dy" class="input-y" value="{{ '{{ dy }}' }}">
+                        <button class="btn btn-mini btn-delete pull-right"><i class="fa fa-trash"></i></button>
+                    </div>
+                </div>
+            </script>
+        </div>
+        <div style="margin-top:15px">
+            <button class="btn btn-small btn-add-annotation"><i class="fa fa-plus"></i> {{ option.label|raw }}</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+    dw.backend.on('sync-option:text-annotations', function(args) {
+        require(['/static/plugins/options/text-annotations.js'], function(syncOption) {
+            syncOption(args);
+        });
+    });
+    </script>
+
+{% endif %}
