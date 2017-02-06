@@ -404,6 +404,32 @@
   bottom: 3px;
   border-radius: 3px;
 }
+.vis-option-type-select-elements label.control-label {
+  vertical-align: top!important;
+  position: relative;
+  top: 6px;
+}
+.vis-option-type-select-elements ul.elements {
+  margin-top: 5px;
+  margin-left: 0;
+  padding: 0;
+}
+.vis-option-type-select-elements ul.elements li {
+  display: inline-block;
+  color: #fff;
+  background: #6991b5;
+  font-family: 'Roboto Condensed';
+  font-size: 12px;
+  padding: 0px 4px;
+  border-radius: 2px;
+  margin-right: 4px;
+  cursor: not-allowed;
+  margin-bottom: 4px;
+  max-width: 100px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .vis-option-type-radio .controls.form-inline {
   vertical-align: top;
 }

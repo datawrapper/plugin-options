@@ -6,9 +6,11 @@ define(function(require) {
             theme = chart.theme(),
             theme_id = chart.get('theme'),
             ui = $('#vis-options-'+key),
-            row_tpl = _.template($('#text-annotations-row-tpl', ui).html()),
+            row_tpl = _.template($('#text-annotations-row-tpl').html()),
             annotation_cont = $('.text-annotations', ui),
-            annotations = clone(chart.get('metadata.visualize.'+key) || []);
+            annotations = clone(chart.get('metadata.visualize.'+key)) || [];
+
+        if (!_.isArray(annotations)) annotations = [];
 
         if (dw.theme(theme_id)) {
             theme = dw.theme(theme_id);

@@ -15,6 +15,7 @@ $options = [
     'radio-left',
     'select-axis-column',
     'select',
+    'select-elements',
     'separator',
     'slider',
     'text',
@@ -24,7 +25,7 @@ $options = [
 ];
 $assets = ['vendor/typeahead.jquery.js', 'options.js', 'options.css'];
 
-$use_require = ['text-annotations' => 1];
+$use_require = ['text-annotations' => 1, 'select-elements' => 1];
 
 foreach ($options as $opt) {
     if (file_exists(ROOT_PATH . 'plugins/'.$plugin->getName().'/static/'.$opt.'.js') && !isset($use_require[$opt])) $assets[] = $opt.'.js';

@@ -1,0 +1,20 @@
+{% if option.type == 'select-elements' %}
+
+    <label class="control-label" for="{{ key }}">{{ option.label|raw }}</label>
+    <div class="controls" data-infotext="{{ 'click on a symbol to add a label' | trans }}">
+        <select class="input input-small" style="width:150px">
+        	<option value="----">--</option>
+        </select>&nbsp;<button class="btn"><i class="fa fa-hand-pointer-o"></i></button>
+        <ul class="elements"></ul>
+    </div>
+
+    <script type="text/javascript">
+
+    dw.backend.on('sync-option:select-elements', function(args) {
+        require(['/static/plugins/options/select-elements.js'], function(syncOption) {
+            syncOption(args);
+        });
+    });
+    </script>
+
+{% endif %}
