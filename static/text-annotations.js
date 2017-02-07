@@ -8,7 +8,7 @@ define(function(require) {
             ui = $('#vis-options-'+key),
             row_tpl = _.template($('#text-annotations-row-tpl').html()),
             annotation_cont = $('.text-annotations', ui),
-            annotations = clone(chart.get('metadata.visualize.'+key)) || [];
+            annotations = clone(chart.get('metadata.visualize.'+key) || []);
 
         if (!_.isArray(annotations)) annotations = [];
 
@@ -155,7 +155,7 @@ define(function(require) {
         });
 
         function clone(o) {
-            return JSON.parse(JSON.stringify(o));
+            return o ? JSON.parse(JSON.stringify(o)) : o;
         }
 
     };
