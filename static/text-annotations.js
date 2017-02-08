@@ -20,6 +20,7 @@ define(function(require) {
             });
         }
 
+        // default annotation settings
         var annotation = {
             x: 20,
             y: 20,
@@ -30,7 +31,7 @@ define(function(require) {
             bold: false,
             italic: false,
             underline: false,
-            text: 'Insert text here',
+            text: 'Insert text here', // <-- @todo: should this be translated?
             align: 'mc'
         };
 
@@ -117,24 +118,28 @@ define(function(require) {
                 var row = $(this).parents('.text-annotations-row'),
                     a = row.get(0)._annotation,
                     ifr = $('#iframe-vis'),
-                    ifr_d = ifr.get(0).contentDocument;
+                    ifr_d = ifr.get(0).contentDocument,
                     ifr_chart = $('.dw-chart-body,#chart', ifr_d);
+                    
                 ifr_chart.addClass('dw-pick-coordinate');
                 
                 var infotext = row.parent().data('infotext');
                 var help = $('<div class="info-text">'+infotext+'</div>')
                     .appendTo('#iframe-wrapper');
 
+                // automatically hide help if user isn't acting
+                // for 15 seconds
                 setTimeout(done, 15000);
                 
                 window.waitingForCoordinate = function(pt) {
-                    // console.log('coord', pt);
+                    // this gets called by the chart
                     a.x = pt[0];
                     a.y = pt[1];
-                    update();
-                    save();
-                    done();
+                    update(); // update ui
+                    save(); // save changes 
+                    done(); // hide help message
                 };
+
                 function done() {
                     ifr_chart.removeClass('dw-pick-coordinate');
                     window.waitingForCoordinate = undefined;
