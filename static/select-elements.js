@@ -63,16 +63,15 @@ define(function(require) {
                 setTimeout(done, 15000);
                 
                 window.waitingForElement = function(pick) {
-                    console.log('coord', pick);
+                    done();
                     selected.push(pick.key);
                     update();
                     save();
-                    done();
                 };
                 function done() {
-                    ifr_chart.removeClass('dw-pick-coordinate');
-                    window.waitingForElement = undefined;
                     help.remove();
+                    ifr_chart.removeClass('dw-pick-element');
+                    window.waitingForElement = undefined;
                 }
             }
         }

@@ -8,7 +8,7 @@ define(function(require) {
             ui = $('#vis-options-'+key),
             row_tpl = _.template($('#text-annotations-row-tpl').html()),
             annotation_cont = $('.text-annotations', ui),
-            annotations = clone(chart.get('metadata.visualize.'+key) || []);
+            annotations = dw.utils.clone(chart.get('metadata.visualize.'+key) || []);
 
         if (!_.isArray(annotations)) annotations = [];
 
@@ -149,7 +149,7 @@ define(function(require) {
         }
 
         function save() {
-            chart.set('metadata.visualize.'+key, clone(annotations));
+            chart.set('metadata.visualize.'+key, dw.utils.clone(annotations));
         }
 
         $('.btn-add-annotation', ui).click(function() {
@@ -158,10 +158,6 @@ define(function(require) {
             save();
             postAdd.call($('.text-annotations-row:last-child .pick-point').get(0));
         });
-
-        function clone(o) {
-            return o ? JSON.parse(JSON.stringify(o)) : o;
-        }
 
     };
 });
