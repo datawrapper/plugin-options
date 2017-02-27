@@ -48,9 +48,10 @@ $(function() {
         }
 
         var select = d3.select('#'+args.key).html(''),
+            lblCustom = select.attr('data-lbl-custom'),
             input = d3.select('#'+args.key+'-user');
 
-        formats.push({ l: '(custom)', f: '--' });
+        formats.push({ l: '('+lblCustom+')', f: '--' });
 
         if (formatMap[curVal]) {
             curVal = formatMap[curVal];
