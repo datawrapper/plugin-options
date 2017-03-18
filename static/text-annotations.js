@@ -27,7 +27,7 @@ define(function(require) {
             dx: 0,
             dy: 0,
             size: 14,
-            color: theme.colors.text,
+            color: theme.colors ? theme.colors.text : '#000000',
             bold: false,
             italic: false,
             underline: false,
