@@ -417,14 +417,14 @@
 .vis-option-type-select-elements ul.elements li {
   display: inline-block;
   color: #fff;
-  background: #6991b5;
+  background: #587c9c;
   font-family: 'Roboto Condensed';
   font-size: 12px;
   padding: 0px 4px;
   border-radius: 2px;
   margin-right: 4px;
   cursor: not-allowed;
-  margin-bottom: 4px;
+  margin-bottom: 0px;
   max-width: 100px;
   overflow: hidden;
   white-space: nowrap;
@@ -443,9 +443,10 @@
 .vis-option-type-checkbox .controls.form-inline label.checkbox input {
   margin-right: 3px;
 }
-.vis-option-type-checkbox .controls.form-inline label.checkbox + label.checkbox,
-.vis-option-type-radio .controls.form-inline label.radio + label.radio {
-  padding-left: 6px;
+.vis-option-type-checkbox .controls.form-inline label.checkbox,
+.vis-option-type-radio .controls.form-inline label.radio {
+  display: inline-block;
+  margin-right: 7px;
 }
 .form-horizontal .control-label {
   padding-top: 0;
