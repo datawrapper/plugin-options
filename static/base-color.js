@@ -28,14 +28,15 @@ $(function() {
              */
             function initBaseColorPicker() {
                 var curColor = chart.get('metadata.visualize.'+args.key, 0);
-                if (!_.isString(curColor)) curColor = theme.colors.palette[curColor];
+                if (_.isString(curColor) && theme.colors[curColor]) curColor = theme.colors[curColor];
+                else if (!_.isString(curColor)) curColor = theme.colors.palette[curColor];
                 // update base color picker
                 $picker
                     .css('background', curColor)
                     .click(function() {
                         $picker.colorselector({
                             color: curColor,
-                            palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                            palette: _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff')),
                             change: baseColorChanged
                         });
                     });

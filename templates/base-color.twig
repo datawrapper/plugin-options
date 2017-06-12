@@ -1,7 +1,7 @@
 
 {% if option.type == 'base-color' %}
 
-    <div id="{{ key }}">
+    <div id="{{ key }}" {% if option.css %}style="{{ option.css }}"{% endif %}>
         {% if not option.hideBaseColorPicker %}
             <div class="control-group">
                 <label class="control-label" for="select-color">{{ option.label | raw }}</label>
