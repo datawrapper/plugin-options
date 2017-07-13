@@ -1,6 +1,8 @@
 
 $(function() {
 
+require(['d3'], function(d3) {
+
     function syncCustomFormat(args) {
         var curVal = args.chart.get('metadata.visualize.'+args.key),
             formats = [],
@@ -90,5 +92,7 @@ $(function() {
     }
 
     dw.backend.on('sync-option:custom-format', syncCustomFormat);
+
+});
 
 });
