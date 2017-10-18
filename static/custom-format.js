@@ -25,16 +25,13 @@ require(['d3'], function(d3) {
                 { l: '0.0', f: '.1f' },
                 { l: '0.00', f: '.2f' },
                 { l: '0.000', f: '.3f' },
-                { l: '1 sign. digit', f: '.1r' },
-                { l: '2 sign. digits', f: '.2r' },
-                { l: '3 sign. digits', f: '.3r' },
-                { l: '0%', f: '%' },
+                { l: '0%', f: '.0%' },
+                { l: '0.0%', f: '.1%' },
                 { l: '0k', f: '.1s' },
                 { l: '0.0k', f: '.2s' },
                 { l: '0.00k', f: '.3s' },
             ];
         } else if (axesCol.type() == 'date') {
-            
             formats = [
                 { l: '2015', f: 'YYYY' },
                 { l: '2015 Q1', f: 'YYYY [Q]Q' },
