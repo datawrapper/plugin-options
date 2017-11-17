@@ -142,7 +142,7 @@ $(function() {
                     if (li.length > 0) {
                         $('.info', $body).hide();
                         $('.select', $body).show();
-                        $colPicker.click(function() {
+                        $colPicker.off('click').on('click', function() {
                             $colPicker.colorselector({
                                 color: li.data('color'),
                                 palette: [].concat(theme.colors.palette, theme.colors.secondary),
@@ -160,7 +160,9 @@ $(function() {
 
                     // set a new color and save
                     function update(color) {
+                        // var li = $('li.selected', $labelUl);
                         var sel = $.extend({}, chart.get('metadata.visualize.custom-colors', {}));
+                        // update little preview color in color picker
                         $('.color', li)
                             .css('background', color)
                             .html('');
