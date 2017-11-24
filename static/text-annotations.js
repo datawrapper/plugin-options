@@ -67,7 +67,7 @@ define(function(require) {
                     a = row.get(0)._annotation,
                     k = $(this).data('var'),
                     val = this.value;
-                if (k == 'x' || k == 'y') val = +val;
+                if ((k == 'x' || k == 'y') && (val == +val)) val = +val;
                 a[k] = val;
                 save();
             }
