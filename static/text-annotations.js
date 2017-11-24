@@ -40,7 +40,7 @@ define(function(require) {
         update();
 
         function update() {
-            
+
             annotation_cont.html('');
 
             annotations.forEach(function(a) {
@@ -120,9 +120,9 @@ define(function(require) {
                     ifr = $('#iframe-vis'),
                     ifr_d = ifr.get(0).contentDocument,
                     ifr_chart = $('.dw-chart-body,#chart', ifr_d);
-                    
+
                 ifr_chart.addClass('dw-pick-coordinate');
-                
+
                 var infotext = row.parent().data('infotext');
                 var help = $('<div class="info-text">'+infotext+'</div>')
                     .appendTo('#iframe-wrapper');
@@ -130,13 +130,13 @@ define(function(require) {
                 // automatically hide help if user isn't acting
                 // for 15 seconds
                 setTimeout(done, 15000);
-                
+
                 window.waitingForCoordinate = function(pt) {
                     // this gets called by the chart
                     a.x = pt[0];
                     a.y = pt[1];
                     update(); // update ui
-                    save(); // save changes 
+                    save(); // save changes
                     done(); // hide help message
                 };
 
