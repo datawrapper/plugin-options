@@ -11,6 +11,7 @@
     <div class="controls">
         <input type="range" style="width:130px" min="{{ option.min }}" max="{{ option.max }}" step="{{ option.step }}" id="{{ key }}" />
         <span class="value"></span>
+        {{ option.html_after | raw }}
     </div>
 
 {% endif %}
