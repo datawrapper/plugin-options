@@ -1,0 +1,50 @@
+
+{% if option.type == 'color-key' %}
+
+    <div id="{{ key }}">
+        <div class="color-key-colors">
+            <div class="color-key-color">
+                <div class="color-key-swatch" style="background:red"></div><input type="text" placeholder="foo" class="color-key-label">
+            </div>
+            <div class="color-key-color">
+                <div class="color-key-swatch" style="background:red"></div><input type="text" placeholder="foo" class="color-key-label">
+            </div>
+            <div class="color-key-color">
+                <div class="color-key-swatch" style="background:red"></div><input type="text" placeholder="foo" class="color-key-label">
+            </div>
+
+        </div>
+    </div>
+
+    <style type="text/css">
+.color-key-colors {
+    margin-bottom: 10px;
+}
+
+.color-key-color {
+    display: inline-block;
+    vertical-align: top;
+    white-space: nowrap;
+    margin-right: 1ex;
+    margin-bottom: 5px;
+}
+.color-key-swatch {
+    width: 16px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 2px 0 0 2px;
+
+}
+input.color-key-label {
+    display: inline-block;
+    font-size: 12px!important;
+    line-height: 16px;
+    vertical-align: middle;
+    padding: 0px 4px;
+    width: 79px;
+    border-left: 0;
+}
+.foo {}
+    </style>
+{% endif %}

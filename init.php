@@ -6,6 +6,7 @@ $options = [
     'axis-matrix',
     'base-color',
     'checkbox',
+    'color-key',
     'column-select',
     'custom-format',
     'custom-format-numeral',
