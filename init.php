@@ -10,6 +10,7 @@ $options = [
     'column-select',
     'custom-format',
     'custom-format-numeral',
+    'custom-format-d3',
     'custom-range',
     'number',
     'radio',

@@ -448,6 +448,10 @@
   display: inline-block;
   margin-right: 7px;
 }
+.vis-option-type-checkbox label.control-label,
+.vis-option-type-radio label.control-label {
+  vertical-align: top!important;
+}
 .form-horizontal .control-label {
   padding-top: 0;
 }
