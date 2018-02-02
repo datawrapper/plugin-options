@@ -58,6 +58,10 @@
 
     dw.backend.on('sync-option:text-annotations', function(args) {
         require(['/static/plugins/options/text-annotations.js'], function(syncOption) {
+            _.extend(args, {
+                insertTextLabel: "{%  trans "text-annotations / insert" %}"
+            });
+
             syncOption(args);
         });
     });

@@ -1,3 +1,5 @@
 {
-  "custom": "custom"
+  "custom": "custom",
+  "infotext / click-text": "Click anywhere in chart to position text",
+  "text-annotations / insert": "Insert your annotation here"
 }

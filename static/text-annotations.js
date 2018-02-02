@@ -31,8 +31,8 @@ define(function(require) {
             bold: false,
             italic: false,
             underline: false,
-            text: 'Insert text here', // <-- @todo: should this be translated?
-            align: 'mc'
+            text: args.insertTextLabel,
+            align: 'tl'
         };
 
         var postAdd = function() {};

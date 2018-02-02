@@ -21,6 +21,7 @@ require(['d3'], function(d3) {
         if (!colid) return;
         if (axesCol.type() == 'number') {
             formats = [
+                { l: '1,000[.00]', f: '0,0.[00]' },
                 { l: '0', f: 'f' },
                 { l: '0.0', f: '.1f' },
                 { l: '0.00', f: '.2f' },
