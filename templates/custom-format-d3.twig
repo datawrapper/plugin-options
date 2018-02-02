@@ -1,0 +1,11 @@
+
+{% if option.type == 'custom-format-d3' %}
+
+    <label class="control-label">{{ option.label | raw }}:</label>
+    <div class="controls">
+        <select style="width:50%"  id="{{ key }}" data-lbl-custom="{% trans "custom" %}"></select>
+        <input style="width:40%" type="text" id="{{ key }}-user" class="hidden" />
+    </div>
+
+{% endif %}
+
