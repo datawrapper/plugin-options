@@ -103,6 +103,8 @@ $(function() {
                         s = lbl[0];
                         lbl = lbl[1];
                     }
+                    s = dw.utils.purifyHtml(s, '');
+                    lbl = dw.utils.purifyHtml(lbl, '');
                     var li = $('<li data-series="'+s+'"></li>')
                         .append('<div class="color">×</div><label>'+lbl+'</label>')
                         .appendTo($labelUl)
