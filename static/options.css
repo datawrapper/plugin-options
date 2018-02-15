@@ -37,7 +37,7 @@
   font-size: 14px;
   color: #444;
 }
-.custom-color-selector-body .color {
+.custom-color-selector-body li .color {
   width: 17px;
   height: 17px;
   float: left;
