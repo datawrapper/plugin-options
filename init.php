@@ -122,7 +122,7 @@ $plugin->registerAdminPage(function() use ($plugin) {
         },
         'group' => __('Admin'),
         'icon' => 'fa-university',
-        'order' => 2
+        'order' => 299999
     );
 });
 
