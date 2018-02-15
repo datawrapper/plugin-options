@@ -198,9 +198,15 @@ $(function() {
         }
 
         function getLabels() {
-            return args.option.axis && vis.axes(true)[args.option.axis] ?
-                _.unique(vis.axes(true)[args.option.axis].values()) :
-                (vis.colorKeys ? vis.colorKeys() : vis.keys());
+            if (args.option.axis && vis.axes(true)[args.option.axis]) {
+                var els = [];
+                vis.axes(true)[args.option.axis].forEach(function(el) {
+                    els.push(el.name());
+                });
+                return _.unique(els)
+            } else {
+                return (vis.colorKeys ? vis.colorKeys() : vis.keys());
+            }
         }
 
     }
