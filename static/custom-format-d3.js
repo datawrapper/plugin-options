@@ -21,6 +21,7 @@ require(['d3'], function(d3) {
         if (!colid) return;
         if (axesCol.type() == 'number') {
             formats = [
+                { l: '1,000', f: ',f' },
                 { l: '0', f: 'f' },
                 { l: '0.0', f: '.1f' },
                 { l: '0.00', f: '.2f' },
@@ -32,7 +33,6 @@ require(['d3'], function(d3) {
                 { l: '0k', f: 's' },
                 { l: '0.0k', f: '.1s' },
                 { l: '0.00k', f: '.2s' },
-                { l: '0,0', f: ',f' },
             ];
         } else if (axesCol.type() == 'date') {
             formats = [
