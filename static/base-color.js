@@ -202,6 +202,7 @@ $(function() {
         function getLabels() {
             if (args.option.axis && vis.axes(true)[args.option.axis]) {
                 var els = [];
+                if (!_.isArray(vis.axes(true)[args.option.axis])) return [];
                 vis.axes(true)[args.option.axis].forEach(function(el) {
                     els.push(el.name());
                 });

@@ -23,9 +23,9 @@ $(function() {
 
     function syncNumber(args) {
         var el = $('#'+args.key);
-        
+
         el.val(args.chart.get('metadata.visualize.'+args.key));
-        
+
         el.change(function() {
             args.chart.set('metadata.visualize.'+args.key, el.val());
         });
@@ -126,7 +126,7 @@ $(function() {
         });
 
         function tonum(v) {
-            return v.trim() === '' ? '' : 
+            return v.trim() === '' ? '' :
                 _.isFinite(+v) ? +v : v;
         }
     }

@@ -3,7 +3,7 @@
     <div class="control-group vis-option-type-text-annotations">
         <script type="template/html" id="text-annotations-row-tpl">
             <div class="text-annotations-row">
-                
+
                 <div class="text-alignment {{ '{{ align }}' }}">
                     <div class="bg"></div>
                     <div class="top left"></div>
@@ -26,7 +26,7 @@
                 <button class="btn btn-small btn-show-more"><i class="fa fa-angle-double-down"></i></button><button class="btn btn-small btn-show-less"><i class="fa fa-angle-double-up"></i></button>
 
                 <div class="more-settings">
-                    <label>{{ option.labels.font|raw }}</label>
+                    <label></label>
                     <div class="btn-group">
                         <button class="btn btn-mini {{ '{{ bold ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="bold"><i class="fa fa-fw fa-bold"></i></button>
                         <button class="btn btn-mini {{ '{{ italic ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="italic"><i class="fa fa-fw fa-italic"></i></button>
@@ -48,7 +48,7 @@
             </div>
         </script>
         <div class="text-annotations" data-infotext="{% trans "infotext / click-text" %}">
-            
+
         </div>
         <div style="margin-top:15px">
             <button class="btn btn-small btn-add-annotation"><i class="fa fa-plus"></i> {{ option.label|raw }}</button>
