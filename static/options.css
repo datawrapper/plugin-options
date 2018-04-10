@@ -121,10 +121,19 @@
   border-left: 0;
 }
 .vis-option-type-text-annotations .text-annotations-row .btn-delete {
-  color: #800;
+  color: #c71e1d;
+  position: relative;
+  top: 1px;
 }
 .vis-option-type-text-annotations .text-annotations-row .btn-group {
   margin-right: 10px;
+}
+.vis-option-type-text-annotations .text-annotations-row .btn-group input.input-mini {
+  background: white;
+  border: 1px solid #ccc;
+  border-left: 0;
+  border-right: 0;
+  height: 18px !important;
 }
 .vis-option-type-text-annotations .text-annotations-row .input-x,
 .vis-option-type-text-annotations .text-annotations-row .input-y {

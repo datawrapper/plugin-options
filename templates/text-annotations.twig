@@ -26,7 +26,6 @@
                 <button class="btn btn-small btn-show-more"><i class="fa fa-angle-double-down"></i></button><button class="btn btn-small btn-show-less"><i class="fa fa-angle-double-up"></i></button>
 
                 <div class="more-settings">
-                    <label></label>
                     <div class="btn-group">
                         <button class="btn btn-mini {{ '{{ bold ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="bold"><i class="fa fa-fw fa-bold"></i></button>
                         <button class="btn btn-mini {{ '{{ italic ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="italic"><i class="fa fa-fw fa-italic"></i></button>
@@ -39,10 +38,11 @@
                     <label><i class="fa fa-text-height"></i></label>
                     <div class="btn-group">
                         <button class="btn btn-fs-inc btn-mini"><i class="fa fa-plus"></i></button>
+                        <input class="input-mini" data-var="size" />
                         <button class="btn btn-fs-dec btn-mini"><i class="fa fa-minus"></i></button>
                     </div>
                     <label>{{ option.labels.offset|raw }}</label>
-                    <input class="input-mini" type="text" placeholder="dx" data-var="dx" class="input-x" value="{{ '{{ dx }}' }}"><input class="input-mini" type="text" placeholder="dy" data-var="dy" class="input-y" value="{{ '{{ dy }}' }}">
+                    <input class="input-mini" type="text" placeholder="dx" data-var="dx" class="input-x" value="{{ '{{ dx }}' }}"><input class="input-mini" type="text" placeholder="dy" data-var="dy" class="input-y" value="{{ '{{ dy }}' }}">&nbsp;
                     <button class="btn btn-mini btn-delete pull-right"><i class="fa fa-trash"></i></button>
                 </div>
             </div>

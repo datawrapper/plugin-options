@@ -67,7 +67,7 @@ define(function(require) {
                     a = row.get(0)._annotation,
                     k = $(this).data('var'),
                     val = this.value;
-                if ((k == 'x' || k == 'y') && (val == +val)) val = +val;
+                if ((k == 'x' || k == 'y' || k == 'size') && (val == +val)) val = +val;
                 a[k] = val;
                 save();
             }
@@ -86,6 +86,7 @@ define(function(require) {
                 } else {
                     if (btn.is('.btn-fs-inc')) a.size = a.size + 1;
                     if (btn.is('.btn-fs-dec')) a.size = Math.max(7, a.size - 1);
+                    $('input[data-var=size]', annotation_cont).val(a.size);
                     if (btn.is('.btn-delete')) {
                         // remove annotation
                         annotations = annotations.filter(function(b) { return a != b; });

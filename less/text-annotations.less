@@ -7,7 +7,7 @@
     .text-annotations-row {
         margin-bottom: 10px;
 
-        label { 
+        label {
             display: inline-block;
             font-size: 13px;
         }
@@ -39,10 +39,19 @@
         }
 
         .btn-delete {
-            color: #800;
+            color: #c71e1d;
+            position: relative;
+            top: 1px;
         }
         .btn-group {
             margin-right: 10px;
+            input.input-mini {
+                background: white;
+                border: 1px solid #ccc;
+                border-left: 0;
+                border-right: 0;
+                height: 18px !important;
+            }
         }
         .btn-down {
 
@@ -103,7 +112,7 @@
             vertical-align: middle;
             margin-right: 3px;
             margin-left: 5px;
-            
+
             div {
                 position: absolute;
                 border: 1px solid @col;
@@ -144,7 +153,7 @@
             &.bl .bottom.left { background: @col; }
             &.bc .bottom.center { background: @col; }
             &.br .bottom.right { background: @col; }
-           
+
         }
     }
 }
@@ -198,7 +207,7 @@
             }
         }
 
-        label { 
+        label {
             display: inline-block;
             font-size: 13px;
         }
@@ -265,7 +274,7 @@
             }
         }
 
-        
+
         .input-x0, .input-x1 {
             width: 70px;
             text-align: right;
@@ -279,8 +288,8 @@
             display: inline-block;
             padding: 0 3px;
         }
-        
-        
+
+
         .input-text {
             width: 180px;
         }
@@ -299,6 +308,6 @@
                 border-radius: 3px;
             }
         }
-        
+
     }
 }
