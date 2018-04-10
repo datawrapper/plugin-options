@@ -32,7 +32,7 @@ define(function(require) {
             italic: false,
             underline: false,
             text: args.insertTextLabel,
-            align: 'tl'
+            align: 'mc'
         };
 
         var postAdd = function() {};
@@ -86,7 +86,7 @@ define(function(require) {
                 } else {
                     if (btn.is('.btn-fs-inc')) a.size = a.size + 1;
                     if (btn.is('.btn-fs-dec')) a.size = Math.max(7, a.size - 1);
-                    $('input[data-var=size]', annotation_cont).val(a.size);
+                    $('input[data-var=size]', row).val(a.size);
                     if (btn.is('.btn-delete')) {
                         // remove annotation
                         annotations = annotations.filter(function(b) { return a != b; });
