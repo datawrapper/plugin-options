@@ -1,3 +1,4 @@
+/* globals dw,_,$ */
 $(function() {
 
     // column select
@@ -9,7 +10,6 @@ $(function() {
         var chart = args.chart,
             vis = args.vis,
             theme_id = chart.get('theme'),
-            labels = getLabels(),
             $el = $('#'+args.key),
             $picker = $('.base-color-picker', $el);
 
@@ -200,12 +200,18 @@ $(function() {
         }
 
         function getLabels() {
-            if (args.option.axis && vis.axes(true)[args.option.axis]) {
+            let colorCol;
+            if (args.option.axis && (colorCol = vis.axes(true)[args.option.axis])) {
                 var els = [];
-                if (!_.isArray(vis.axes(true)[args.option.axis])) return [];
-                vis.axes(true)[args.option.axis].forEach(function(el) {
-                    els.push(el.name());
-                });
+                if (_.isArray(colorCol)) {
+                    // multiple columns --> use one value per column
+                    colorCol.forEach(function(el) {
+                        els.push(el.name());
+                    });
+                } else {
+                    // single column --> use unique values
+                    colorCol.each(v => els.push(''+v));
+                }
                 return _.unique(els)
             } else {
                 return (vis.colorKeys ? vis.colorKeys() : vis.keys());

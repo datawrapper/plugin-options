@@ -1,3 +1,4 @@
+/* globals dw,$,_ */
 require(['dw/chart/visualize/options/initCustomColors'], function(updateCustomColors) {
     function syncColorKey(args) {
 
