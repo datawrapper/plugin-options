@@ -1,6 +1,6 @@
 {% if option.type == 'radio' %}
 
-    <label class="control-label" for="{{ key }}">{{ option.label|raw }}</label>
+    <label {%if option.labelWidth %}style="width:{{option.labelWidth}}"{%endif%} class="control-label" for="{{ key }}">{{ option.label|raw }}</label>
     <div class="controls form-inline">
 
     {% for opt in option.options %}
@@ -9,5 +9,5 @@
         </label>
     {% endfor %}
     </div>
-    
+
 {% endif %}
