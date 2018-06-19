@@ -1,5 +1,5 @@
 $(function() {
-    
+
 require(['d3'], function(d3) {
 
     function syncCustomFormat(args) {
@@ -50,6 +50,9 @@ require(['d3'], function(d3) {
                 { l: 'Apr, May', f: 'MMM' },
                 { l: 'Apr ’15, May ’15', f: 'MMM ’YY' },
                 { l: 'April, 2, 3', f: 'MMM|DD' },
+                { l: 'April 1, 2:30pm', f: 'll|LT' },
+                { l: 'Monday, 2:30pm', f: 'dddd|LT' },
+                { l: 'Mon., 2:30pm', f: 'ddd|LT' },
             ];
         }
 
