@@ -32,7 +32,7 @@ $(function() {
                                 if (!_axes[axis.id]) _axes[axis.id] = [];
                                 // remove column from all axes
                                 _.each(_axes, function(cols, k) {
-                                    if (args.vis.meta.axes[k].multiple) {
+                                    if (args.vis.meta.axes[k] && args.vis.meta.axes[k].multiple) {
                                         if (_axes[k]) _axes[k] = _axes[k].filter(function(d) {
                                             return d != column.name();
                                         });
