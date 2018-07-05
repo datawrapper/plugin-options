@@ -210,7 +210,7 @@ $(function() {
                     });
                 } else {
                     // single column --> use unique values
-                    colorCol.each(v => els.push(''+v));
+                    colorCol.each(function(v) { els.push(''+v) });
                 }
                 return _.unique(els)
             } else {
