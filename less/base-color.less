@@ -73,11 +73,26 @@
     .dataseries li {
         padding: 5px 5px 1px 8px;
         cursor: pointer;
+        border-top: 1px solid rgba(0, 0, 0, 0.075);
+
+        &:nth-child(2n) {
+            background: rgba(128, 128, 128, 0.05);
+        }
+
+        &:first-child {
+            border-top: 0;
+        }
+
+        &.selected {
+            background: #18a1cd22;
+        }
+        &.selected + li {
+            border-top-color: #c6d9df;
+        }
     }
 
-    .dataseries li:nth-child(2n) {
-        background: rgba(0,0,0,.075);
-    }
+
+
 
     .dataseries label {
         padding-left: 25px;
