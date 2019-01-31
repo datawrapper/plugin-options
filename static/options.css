@@ -282,6 +282,15 @@
 }
 .vis-option-type-range-annotations .range-annotations-row {
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .vis-option-type-range-annotations .range-annotations-row .range-type {
   display: inline-block;
@@ -345,7 +354,7 @@
 }
 .vis-option-type-range-annotations .range-annotations-row label.opacity {
   width: 20px;
-  height: 9px;
+  height: 14px;
   position: relative;
   left: 4px;
   top: 1px;
