@@ -1,3 +1,15 @@
+.flexbox-mixin() {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
 .vis-option-type-text-annotations {
 
     @col: #999;
@@ -6,6 +18,10 @@
 
     .text-annotations-row {
         margin-bottom: 10px;
+
+        .text-annotations-main {
+            .flexbox-mixin();
+        }
 
         label {
             display: inline-block;
@@ -82,7 +98,7 @@
             display: none;
         }
         &.show-more .more-settings {
-            display: block;
+            .flexbox-mixin();
         }
         &.show-more .btn-show-less {
             display: inline-block;
@@ -167,15 +183,7 @@
 
     .range-annotations-row {
         margin-bottom: 10px;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
+        .flexbox-mixin();
 
         .range-type {
             display: inline-block;

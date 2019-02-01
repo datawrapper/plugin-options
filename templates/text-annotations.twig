@@ -3,27 +3,28 @@
     <div class="control-group vis-option-type-text-annotations">
         <script type="template/html" id="text-annotations-row-tpl">
             <div class="text-annotations-row">
+                <div class="text-annotations-main">
+                    <div class="text-alignment {{ '{{ align }}' }}">
+                        <div class="bg"></div>
+                        <div class="top left"></div>
+                        <div class="top center"></div>
+                        <div class="top right"></div>
+                        <div class="middle left"></div>
+                        <div class="middle center"></div>
+                        <div class="middle right"></div>
+                        <div class="bottom left"></div>
+                        <div class="bottom center"></div>
+                        <div class="bottom right"></div>
+                    </div>
+                    <input type="text" placeholder="x" data-var="x" class="input-x" value="{{ '{{ x }}' }}">
+                    <input type="text" placeholder="y" data-var="y" class="input-y" value="{{ '{{ y }}' }}">
+                    <a class="pick-point"><i class="fa fa-mouse-pointer"></i></a>
 
-                <div class="text-alignment {{ '{{ align }}' }}">
-                    <div class="bg"></div>
-                    <div class="top left"></div>
-                    <div class="top center"></div>
-                    <div class="top right"></div>
-                    <div class="middle left"></div>
-                    <div class="middle center"></div>
-                    <div class="middle right"></div>
-                    <div class="bottom left"></div>
-                    <div class="bottom center"></div>
-                    <div class="bottom right"></div>
+                    <label>&nbsp;</label>
+                    <textarea placeholder="text" data-var="text" class="input-text" value="{{ '{{ text }}' }}">{{ '{{ text }}' }}</textarea>
+                    <label>&nbsp;</label>
+                    <button class="btn btn-small btn-show-more"><i class="fa fa-angle-double-down"></i></button><button class="btn btn-small btn-show-less"><i class="fa fa-angle-double-up"></i></button>
                 </div>
-                <input type="text" placeholder="x" data-var="x" class="input-x" value="{{ '{{ x }}' }}">
-                <input type="text" placeholder="y" data-var="y" class="input-y" value="{{ '{{ y }}' }}">
-                <a class="pick-point"><i class="fa fa-mouse-pointer"></i></a>
-
-                <label>&nbsp;</label>
-                <textarea placeholder="text" data-var="text" class="input-text" value="{{ '{{ text }}' }}">{{ '{{ text }}' }}</textarea>
-                <label>&nbsp;</label>
-                <button class="btn btn-small btn-show-more"><i class="fa fa-angle-double-down"></i></button><button class="btn btn-small btn-show-less"><i class="fa fa-angle-double-up"></i></button>
 
                 <div class="more-settings">
                     <div class="btn-group">
