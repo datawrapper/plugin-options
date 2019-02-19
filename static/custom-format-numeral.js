@@ -41,14 +41,15 @@ require(['d3'], function(d3) {
             ];
         } else if (axesCol.type() == 'date') {
             formats = [
-                { l: '2015, 2016', f: 'YYYY' },
-                { l: '2015 Q1, 2015 Q2', f: 'YYYY [Q]Q' },
-                { l: '2015, Q2, Q3', f: 'YYYY|\\QQ' },
-                { l: '2015, Feb, Mar', f: 'YYYY|MMM' },
+                { l: '2018, 2019', f: 'YYYY' },
+                { l: '2019 Q1, 2019 Q2', f: 'YYYY [Q]Q' },
+                { l: '2019, Q2, Q3', f: 'YYYY|\\QQ' },
+                { l: '2019, Feb, Mar', f: 'YYYY|MMM' },
                 { l: '’15', f: '’YY' },
+                { l: '01/05/2019', f: 'L' },
                 { l: 'April, May', f: 'MMMM' },
                 { l: 'Apr, May', f: 'MMM' },
-                { l: 'Apr ’15, May ’15', f: 'MMM ’YY' },
+                { l: 'Apr ’19, May ’19', f: 'MMM ’YY' },
                 { l: 'April, 2, 3', f: 'MMM|DD' },
                 { l: 'April 1, 2:30pm', f: 'll|LT' },
                 { l: 'Monday, 2:30pm', f: 'dddd|LT' },
