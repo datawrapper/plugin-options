@@ -44,6 +44,7 @@ Hooks::register('compile_less_files', function() use ($plugin) {
     return [ROOT_PATH . 'plugins/' . $plugin->getName() . '/less/options.less',];
 });
 
+/*
 $plugin->registerAdminPage(function() use ($plugin) {
     return array(
         'url' => '/options',
@@ -125,5 +126,6 @@ $plugin->registerAdminPage(function() use ($plugin) {
         'order' => 299999
     );
 });
+*/
 
 $plugin->declareAssets($assets, "#/chart|map/[^/]+/visualize#");
