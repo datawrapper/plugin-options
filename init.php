@@ -24,6 +24,7 @@ $options = [
     'textarea',
     'text-annotations',
     'typeahead',
+    'alert'
 ];
 $assets = ['vendor/typeahead.jquery.js', 'options.js', 'options.css'];
 
