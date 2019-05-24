@@ -21,7 +21,6 @@ $options = [
     'separator',
     'slider',
     'text',
-    'prepend-append',
     'textarea',
     'text-annotations',
     'typeahead',
