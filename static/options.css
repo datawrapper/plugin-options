@@ -477,7 +477,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-div.alert-warning {
+div.alert.option.alert-warning {
   color: #614A0D;
   padding: 10px;
   font-weight: 500;
@@ -486,7 +486,7 @@ div.alert-warning {
   border-radius: 5px;
   line-height: 17px;
 }
-div.alert-warning a {
+div.alert.option.alert-warning a {
   font-weight: 800;
 }
 .vis-option-type-radio .controls.form-inline {

@@ -32,7 +32,7 @@ $assets = ['vendor/typeahead.jquery.js', 'options.js', 'options.css'];
 $use_require = ['text-annotations' => 1, 'select-elements' => 1];
 
 foreach ($options as $opt) {
-    if (file_exists(ROOT_PATH . 'plugins/'.$plugin->getName().'/static/'.$opt.'.js') && !isset($use_require[$opt])) $assets[] = $opt.'.js';
+    if (file_exists(get_plugin_path() . $plugin->getName().'/static/'.$opt.'.js') && !isset($use_require[$opt])) $assets[] = $opt.'.js';
     Hooks::register(
         Hooks::VIS_OPTION_CONTROLS,
         function($o, $k) use ($app, $plugin, $opt) {
@@ -43,7 +43,7 @@ foreach ($options as $opt) {
 }
 
 Hooks::register('compile_less_files', function() use ($plugin) {
-    return [ROOT_PATH . 'plugins/' . $plugin->getName() . '/less/options.less',];
+    return [get_plugin_path() . $plugin->getName() . '/less/options.less',];
 });
 
 /*
