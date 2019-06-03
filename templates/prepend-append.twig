@@ -1,0 +1,9 @@
+{% if option.type == 'prepend-append' %}
+
+    <label class= "{%if option.labelWidth %}style="width:{{option.labelWidth}}"{%endif%} control-label">{{ option.label | raw }}:</label>
+    <div class="controls">
+        <input type="text" class="prepend" placeholder="eg. $" /> #
+        <input type="text" class="append" placeholder="eg. %" />
+    </div>
+
+{% endif %}

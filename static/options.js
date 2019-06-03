@@ -131,6 +131,21 @@ $(function() {
         }
     }
 
+    function syncPrependAppend(args) {
+        var curVal = args.chart.get('metadata.visualize.'+args.key) || ['',''],
+            ui = $('#vis-options-'+args.key),
+            prepend = $('.prepend', ui),
+            append = $('.append', ui);
+        // propagate
+        prepend.val(curVal[0]);
+        append.val(curVal[1]);
+        // listen
+        $('input', ui).change(function() {
+            var v = [prepend.val(), append.val()];
+            if (v[0] === '' && v[1] === '') v = null;
+            args.chart.set('metadata.visualize.'+args.key, v);
+        });
+    }
 
     dw.backend.on('sync-option:select', syncValue);
     dw.backend.on('sync-option:text', syncValue);
@@ -140,6 +155,7 @@ $(function() {
     dw.backend.on('sync-option:radio', syncRadio);
     dw.backend.on('sync-option:radio-left', syncRadio);
     dw.backend.on('sync-option:custom-range', syncCustomRange);
+    dw.backend.on('sync-option:prepend-append', syncPrependAppend);
 
     // column select
     dw.backend.on('sync-option:select-axis-column', syncSelectAxisColumn);

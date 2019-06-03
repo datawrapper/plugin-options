@@ -489,6 +489,15 @@ div.alert.option.alert-warning {
 div.alert.option.alert-warning a {
   font-weight: 800;
 }
+.vis-option-type-prepend-append label {
+  display: inline-block;
+  margin-right: 1em;
+}
+.vis-option-type-prepend-append input.prepend,
+.vis-option-type-prepend-append input.append {
+  width: 5ex;
+  text-align: right;
+}
 .vis-option-type-radio .controls.form-inline {
   vertical-align: top;
 }
