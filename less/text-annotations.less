@@ -11,10 +11,9 @@
 }
 
 .vis-option-type-text-annotations {
-
     @col: #999;
 
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 
     .text-annotations-row {
         margin-bottom: 10px;
@@ -27,13 +26,13 @@
             display: inline-block;
             font-size: 13px;
         }
-        input[type=text] {
+        input[type='text'] {
             height: 26px;
             box-sizing: border-box;
             padding: 3px 5px;
-            font-size: 13px!important;
+            font-size: 13px !important;
         }
-        input[type=color] {
+        input[type='color'] {
             padding: 0;
             margin: 0;
             width: 20px;
@@ -44,8 +43,8 @@
             box-shadow: none;
         }
         .input-mini {
-            height: 20px!important;
-            padding: 1px 3px!important;
+            height: 20px !important;
+            padding: 1px 3px !important;
             width: 27px;
             text-align: center;
             & + .input-mini {
@@ -70,17 +69,19 @@
             }
         }
         .btn-down {
-
         }
-        .input-x, .input-y {
+        .input-x,
+        .input-y {
             width: 40px;
             text-align: right;
         }
         .pick-point {
-            font-size: 12px; color: #888;
+            font-size: 12px;
+            color: #888;
             &:hover {
                 text-decoration: none;
-                color: #222; cursor: pointer;
+                color: #222;
+                cursor: pointer;
             }
             display: inline-block;
             padding: 0 3px;
@@ -97,8 +98,14 @@
         .btn-show-less {
             display: none;
         }
-        &.show-more .more-settings {
+        .settings-row + .settings-row {
+            margin-top: 5px;
+        }
+        &.show-more .more-settings .settings-row {
             .flexbox-mixin();
+        }
+        &.show-more .more-settings {
+            display: block;
         }
         &.show-more .btn-show-less {
             display: inline-block;
@@ -110,7 +117,10 @@
             width: 160px;
         }
         .btn-color {
-            i.fa { position: relative; top: -2px; }
+            i.fa {
+                position: relative;
+                top: -2px;
+            }
             .color {
                 background: black;
                 display: block;
@@ -153,33 +163,62 @@
                 cursor: default;
                 z-index: 0;
             }
-            .top { top: 0px; }
-            .middle { top: 50%; margin-top: -3px;}
-            .bottom { bottom: 0px; }
-            .left { left: 0px; }
-            .center { left: 50%; margin-left: -3px; }
-            .right { right: 0px; }
+            .top {
+                top: 0px;
+            }
+            .middle {
+                top: 50%;
+                margin-top: -3px;
+            }
+            .bottom {
+                bottom: 0px;
+            }
+            .left {
+                left: 0px;
+            }
+            .center {
+                left: 50%;
+                margin-left: -3px;
+            }
+            .right {
+                right: 0px;
+            }
 
-            &.tl .top.left { background: @col; }
-            &.tc .top.center { background: @col; }
-            &.tr .top.right { background: @col; }
-            &.ml .middle.left { background: @col; }
-            &.mc .middle.center { background: @col; }
-            &.mr .middle.right { background: @col; }
-            &.bl .bottom.left { background: @col; }
-            &.bc .bottom.center { background: @col; }
-            &.br .bottom.right { background: @col; }
-
+            &.tl .top.left {
+                background: @col;
+            }
+            &.tc .top.center {
+                background: @col;
+            }
+            &.tr .top.right {
+                background: @col;
+            }
+            &.ml .middle.left {
+                background: @col;
+            }
+            &.mc .middle.center {
+                background: @col;
+            }
+            &.mr .middle.right {
+                background: @col;
+            }
+            &.bl .bottom.left {
+                background: @col;
+            }
+            &.bc .bottom.center {
+                background: @col;
+            }
+            &.br .bottom.right {
+                background: @col;
+            }
         }
     }
 }
 
-
 .vis-option-type-range-annotations {
-
     @col: #999;
 
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
 
     .range-annotations-row {
         margin-bottom: 10px;
@@ -196,7 +235,8 @@
             border-bottom: 1px solid black;
             border-left: 1px solid black;
             cursor: pointer;
-            &:before, &:after {
+            &:before,
+            &:after {
                 display: block;
                 content: '';
                 position: absolute;
@@ -204,7 +244,7 @@
                 right: 0;
                 top: 40%;
                 bottom: 20%;
-                background: rgba(0,0,0,0.05);
+                background: rgba(0, 0, 0, 0.05);
             }
 
             &:after {
@@ -228,13 +268,13 @@
             display: inline-block;
             font-size: 13px;
         }
-        input[type=text] {
+        input[type='text'] {
             height: 26px;
             box-sizing: border-box;
             padding: 3px 5px;
-            font-size: 13px!important;
+            font-size: 13px !important;
         }
-        input[type=color] {
+        input[type='color'] {
             padding: 0;
             margin: 0;
             width: 20px;
@@ -281,8 +321,8 @@
             }
         }
         .input-mini {
-            height: 20px!important;
-            padding: 1px 3px!important;
+            height: 20px !important;
+            padding: 1px 3px !important;
             width: 27px;
             text-align: center;
             & + .input-mini {
@@ -291,21 +331,22 @@
             }
         }
 
-
-        .input-x0, .input-x1 {
+        .input-x0,
+        .input-x1 {
             width: 70px;
             text-align: right;
         }
         .pick-point {
-            font-size: 12px; color: #888;
+            font-size: 12px;
+            color: #888;
             &:hover {
                 text-decoration: none;
-                color: #222; cursor: pointer;
+                color: #222;
+                cursor: pointer;
             }
             display: inline-block;
             padding: 0 3px;
         }
-
 
         .input-text {
             width: 180px;
@@ -313,7 +354,10 @@
         .btn-color {
             position: relative;
             width: 24px;
-            i.fa { position: relative; top: -2px; }
+            i.fa {
+                position: relative;
+                top: -2px;
+            }
             .color {
                 background: black;
                 display: block;
@@ -325,6 +369,5 @@
                 border-radius: 3px;
             }
         }
-
     }
 }

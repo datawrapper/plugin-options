@@ -1,22 +1,22 @@
+/* globals define, $, _, dw */
 define(function(require) {
-
     return function(args) {
-        var chart = args.chart,
-            key = args.key,
-            theme = chart.theme(),
-            theme_id = chart.get('theme'),
-            ui = $('#vis-options-'+key),
-            row_tpl = _.template($('#text-annotations-row-tpl').html()),
-            annotation_cont = $('.text-annotations', ui),
-            annotations = dw.utils.clone(chart.get('metadata.visualize.'+key) || []);
+        const chart = args.chart;
+        const key = args.key;
+        let theme = chart.theme();
+        const themeId = chart.get('theme');
+        const ui = $('#vis-options-' + key);
+        const rowTemplate = _.template($('#text-annotations-row-tpl').html());
+        const annotationCont = $('.text-annotations', ui);
+        let annotations = dw.utils.clone(chart.get('metadata.visualize.' + key) || []);
 
         if (!_.isArray(annotations)) annotations = [];
 
-        if (dw.theme(theme_id)) {
-            theme = dw.theme(theme_id);
+        if (dw.theme(themeId)) {
+            theme = dw.theme(themeId);
         } else {
             dw.backend.one('theme-loaded', function() {
-                theme = dw.theme(theme_id);
+                theme = dw.theme(themeId);
             });
         }
 
@@ -29,6 +29,7 @@ define(function(require) {
             size: 14,
             color: theme.colors ? theme.colors.text : '#000000',
             bold: false,
+            bg: false,
             italic: false,
             underline: false,
             text: args.insertTextLabel,
@@ -40,46 +41,48 @@ define(function(require) {
         update();
 
         function update() {
-
-            annotation_cont.html('');
+            annotationCont.html('');
 
             annotations.forEach(function(a) {
-                var row = $(row_tpl(_.extend({} ,annotation, a)))
-                    .appendTo(annotation_cont);
+                var row = $(rowTemplate(_.extend({}, annotation, a))).appendTo(annotationCont);
                 row.get(0)._annotation = a;
             });
 
-            $('.text-alignment div:not(.bg)', annotation_cont).click(function() {
-                var row = $(this).parents('.text-annotations-row'),
-                    align = $(this),
-                    a = row.get(0)._annotation;
-                a.align = (align.hasClass('top') ? 't' : align.hasClass('bottom') ? 'b' : 'm') +
+            $('.text-alignment div:not(.bg)', annotationCont).click(function() {
+                const row = $(this).parents('.text-annotations-row');
+                const align = $(this);
+                const a = row.get(0)._annotation;
+                a.align =
+                    (align.hasClass('top') ? 't' : align.hasClass('bottom') ? 'b' : 'm') +
                     (align.hasClass('left') ? 'l' : align.hasClass('right') ? 'r' : 'c');
                 save();
-                $(this).parents('.text-alignment').attr('class', 'text-alignment '+a.align);
+                $(this)
+                    .parents('.text-alignment')
+                    .attr('class', 'text-alignment ' + a.align);
             });
 
-            $('textarea', annotation_cont).keyup(onChange);
-            $('input', annotation_cont).change(onChange);
+            $('textarea', annotationCont).keyup(onChange);
+            $('input', annotationCont).change(onChange);
 
             function onChange() {
-                var row = $(this).parents('.text-annotations-row'),
-                    a = row.get(0)._annotation,
-                    k = $(this).data('var'),
-                    val = this.value;
-                if ((k == 'x' || k == 'y' || k == 'size') && (val == +val)) val = +val;
+                const row = $(this).parents('.text-annotations-row');
+                const a = row.get(0)._annotation;
+                const k = $(this).data('var');
+                let val = this.value;
+                if ((k === 'x' || k === 'y' || k === 'size') && val === +val) val = +val;
+                if (k === 'bg') val = this.checked;
                 a[k] = val;
                 save();
             }
 
-            $('button', annotation_cont).click(function() {
-                var row = $(this).parents('.text-annotations-row'),
-                    a = row.get(0)._annotation,
-                    btn = $(this),
-                    k = btn.data('var'),
-                    tgl = btn.data('toggle'),
-                    val = this.value;
-                if (tgl == '1') {
+            $('button', annotationCont).click(function() {
+                const row = $(this).parents('.text-annotations-row');
+                const a = row.get(0)._annotation;
+                const btn = $(this);
+                const k = btn.data('var');
+                const tgl = btn.data('toggle');
+                // const val = this.value;
+                if (tgl === 1) {
                     a[k] = !(a[k] || false);
                     btn.removeClass('btn-inverse');
                     if (a[k]) btn.addClass('btn-inverse');
@@ -89,11 +92,17 @@ define(function(require) {
                     $('input[data-var=size]', row).val(a.size);
                     if (btn.is('.btn-delete')) {
                         // remove annotation
-                        annotations = annotations.filter(function(b) { return a != b; });
+                        annotations = annotations.filter(function(b) {
+                            return a !== b;
+                        });
                         row.remove();
                     }
-                    if (btn.is('.btn-show-more')) { row.addClass('show-more'); }
-                    if (btn.is('.btn-show-less')) { row.removeClass('show-more'); }
+                    if (btn.is('.btn-show-more')) {
+                        row.addClass('show-more');
+                    }
+                    if (btn.is('.btn-show-less')) {
+                        row.removeClass('show-more');
+                    }
                     if (btn.is('.btn-color')) {
                         btn.find('.color').colorselector({
                             color: a.color,
@@ -110,23 +119,22 @@ define(function(require) {
                 save();
             });
 
-            $('a.pick-point', annotation_cont).click(pickAPoint);
+            $('a.pick-point', annotationCont).click(pickAPoint);
 
             postAdd = pickAPoint;
 
             function pickAPoint() {
                 // console.log('pickAPoint');
-                var row = $(this).parents('.text-annotations-row'),
-                    a = row.get(0)._annotation,
-                    ifr = $('#iframe-vis'),
-                    ifr_d = ifr.get(0).contentDocument,
-                    ifr_chart = $('.dw-chart-body,#chart', ifr_d);
+                const row = $(this).parents('.text-annotations-row');
+                const a = row.get(0)._annotation;
+                const ifr = $('#iframe-vis');
+                const iframeDoc = ifr.get(0).contentDocument;
+                const iframeChart = $('.dw-chart-body,#chart', iframeDoc);
 
-                ifr_chart.addClass('dw-pick-coordinate');
+                iframeChart.addClass('dw-pick-coordinate');
 
                 var infotext = row.parent().data('infotext');
-                var help = $('<div class="info-text">'+infotext+'</div>')
-                    .appendTo('#iframe-wrapper');
+                var help = $('<div class="info-text">' + infotext + '</div>').appendTo('#iframe-wrapper');
 
                 // automatically hide help if user isn't acting
                 // for 15 seconds
@@ -142,7 +150,7 @@ define(function(require) {
                 };
 
                 function done() {
-                    ifr_chart.removeClass('dw-pick-coordinate');
+                    iframeChart.removeClass('dw-pick-coordinate');
                     window.waitingForCoordinate = undefined;
                     help.remove();
                 }
@@ -150,7 +158,7 @@ define(function(require) {
         }
 
         function save() {
-            chart.set('metadata.visualize.'+key, dw.utils.clone(annotations));
+            chart.set('metadata.visualize.' + key, dw.utils.clone(annotations));
         }
 
         $('.btn-add-annotation', ui).click(function() {
@@ -159,6 +167,5 @@ define(function(require) {
             save();
             postAdd.call($('.text-annotations-row:last-child .pick-point').get(0));
         });
-
     };
 });
