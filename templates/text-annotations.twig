@@ -27,24 +27,29 @@
                 </div>
 
                 <div class="more-settings">
-                    <div class="btn-group">
-                        <button class="btn btn-mini {{ '{{ bold ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="bold"><i class="fa fa-fw fa-bold"></i></button>
-                        <button class="btn btn-mini {{ '{{ italic ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="italic"><i class="fa fa-fw fa-italic"></i></button>
-                        <button class="btn btn-mini {{ '{{ underline ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="underline"><i class="fa fa-fw fa-underline"></i></button>
-                        <button class="btn btn-mini btn-color" data-var="color">
-                            <i style="color:{{ '{{ color }}' }}" class="fa fa-fw fa-font"></i>
-                            <div style="background:{{ '{{ color }}' }}" class="color"></div>
-                        </button>
+                    <div class="settings-row">
+                        <div class="btn-group">
+                            <button class="btn btn-mini {{ '{{ bold ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="bold"><i class="fa fa-fw fa-bold"></i></button>
+                            <button class="btn btn-mini {{ '{{ italic ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="italic"><i class="fa fa-fw fa-italic"></i></button>
+                            <button class="btn btn-mini {{ '{{ underline ? "btn-inverse" : "" }}' }}" data-toggle="1" data-var="underline"><i class="fa fa-fw fa-underline"></i></button>
+                            <button class="btn btn-mini btn-color" data-var="color">
+                                <i style="color:{{ '{{ color }}' }}" class="fa fa-fw fa-font"></i>
+                                <div style="background:{{ '{{ color }}' }}" class="color"></div>
+                            </button>
+                        </div>
+                        <label><i class="fa fa-text-height"></i></label>
+                        <div class="btn-group">
+                            <button class="btn btn-fs-inc btn-mini"><i class="fa fa-plus"></i></button>
+                            <input class="input-mini" data-var="size" />
+                            <button class="btn btn-fs-dec btn-mini"><i class="fa fa-minus"></i></button>
+                        </div>
+                        <label>{{ option.labels.offset|raw }}</label>
+                        <input class="input-mini" type="text" placeholder="dx" data-var="dx" class="input-x" value="{{ '{{ dx }}' }}"><input class="input-mini" type="text" placeholder="dy" data-var="dy" class="input-y" value="{{ '{{ dy }}' }}">&nbsp;
+                        <button class="btn btn-mini btn-delete pull-right"><i class="fa fa-trash"></i></button>
                     </div>
-                    <label><i class="fa fa-text-height"></i></label>
-                    <div class="btn-group">
-                        <button class="btn btn-fs-inc btn-mini"><i class="fa fa-plus"></i></button>
-                        <input class="input-mini" data-var="size" />
-                        <button class="btn btn-fs-dec btn-mini"><i class="fa fa-minus"></i></button>
+                    <div class="settings-row">
+                        <label class="checkbox"><input data-var="bg" class="fill-bg" {{ '{{ bg ? "checked" : "" }}' }} type="checkbox" /> fill background</label>
                     </div>
-                    <label>{{ option.labels.offset|raw }}</label>
-                    <input class="input-mini" type="text" placeholder="dx" data-var="dx" class="input-x" value="{{ '{{ dx }}' }}"><input class="input-mini" type="text" placeholder="dy" data-var="dy" class="input-y" value="{{ '{{ dy }}' }}">&nbsp;
-                    <button class="btn btn-mini btn-delete pull-right"><i class="fa fa-trash"></i></button>
                 </div>
             </div>
         </script>
