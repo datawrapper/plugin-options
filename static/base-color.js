@@ -7,17 +7,16 @@ $(function() {
 
     function sync(args) {
 
-        var chart = args.chart,
-            vis = args.vis,
-            theme_id = chart.get('theme'),
-            $el = $('#'+args.key),
-            $picker = $('.base-color-picker', $el);
+        var chart = args.chart;
+        var vis = args.vis;
+        var theme_id = chart.get('theme');
+        var $el = $('#'+args.key);
+        var $picker = $('.base-color-picker', $el);
 
         if (dw.theme(theme_id)) themesAreReady();
         else dw.backend.one('theme-loaded', themesAreReady);
 
         function themesAreReady() {
-
             var theme = dw.theme(theme_id);
 
             if (!args.option.hideBaseColorPicker) initBaseColorPicker();
@@ -28,22 +27,26 @@ $(function() {
              */
             function initBaseColorPicker() {
                 var curColor = chart.get('metadata.visualize.'+args.key, 0);
+                const flattenedPalette = flattenPalette(theme.colors.palette);
                 if (_.isString(curColor) && theme.colors[curColor]) curColor = theme.colors[curColor];
-                else if (!_.isString(curColor)) curColor = theme.colors.palette[curColor];
+                else if (!_.isString(curColor)) curColor = flattenedPalette[curColor];
                 // update base color picker
+                let palette = _.uniq([].concat(theme.colors.palette, theme.colors.secondary))
+                if (typeof palette[0] === 'string') _.uniq([].concat(palette,'#ffffff'));
                 $picker
                     .css('background', curColor)
                     .click(function() {
                         $picker.colorselector({
                             color: curColor,
-                            palette: _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff')),
+                            palette: palette,
+                            config: theme.colors.paletteConfig,
                             change: baseColorChanged
                         });
                     });
 
                 function baseColorChanged(color) {
                     $picker.css('background', color);
-                    var palIndex = theme.colors.palette.join(',')
+                    var palIndex = flattenedPalette.join(',')
                         .toLowerCase()
                         .split(',')
                         .indexOf(color);
@@ -137,9 +140,9 @@ $(function() {
 
                 // called whenever the user selects a new series
                 function customColorSelectSeries() {
-                    var li = $('li.selected', $labelUl),
-                        $colPicker = $('.color-picker', $body),
-                        $reset = $('.reset-color', $body);
+                    var li = $('li.selected', $labelUl);
+                    var $colPicker = $('.color-picker', $body);
+                    var $reset = $('.reset-color', $body);
 
                     if (li.length > 0) {
                         $('.info', $body).hide();
@@ -148,6 +151,7 @@ $(function() {
                             $colPicker.colorselector({
                                 color: li.data('color'),
                                 palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                                config: theme.colors.paletteConfig,
                                 change: function(color) {
                                     $colPicker.css('background', color);
                                     update(color);
@@ -198,7 +202,35 @@ $(function() {
                 }
             }
         }
+        function flattenPalette(palette) {
 
+            if (_.isString(palette[0])) {
+                return palette;
+            }
+            else if (_.isArray(palette[0])) {
+                let flattened = [];
+                palette.forEach(function(group){
+                    flattened.push(...group)
+                })
+                return flattened;
+            }
+            else {
+                let flattened = [];
+                palette.forEach(function(group){
+                    if (_.isString(group.colors[0])) {
+                        flattened.push(...group.colors)
+                    }
+                    else {
+                        let flattenedGroup = [];
+                        group.colors.forEach(function(set){
+                            flattenedGroup.push(...set)
+                        })
+                        flattened.push(...flattenedGroup)
+                    }
+                })
+                return flattened
+            }
+        }
         function getLabels() {
             let colorCol;
             if (args.option.axis && (colorCol = vis.axes(true)[args.option.axis])) {
