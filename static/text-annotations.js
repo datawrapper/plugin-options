@@ -19,14 +19,14 @@ define(function(require) {
                 theme = dw.theme(themeId);
             });
         }
-
+        const defaultFontSize = get(theme,'style.chart.labels.annotations.defaults.size',14);
         // default annotation settings
         var annotation = {
             x: 20,
             y: 20,
             dx: 0,
             dy: 0,
-            size: 14,
+            size: defaultFontSize,
             color: theme.colors ? theme.colors.text : '#000000',
             bold: false,
             bg: false,
@@ -156,9 +156,22 @@ define(function(require) {
                 }
             }
         }
-
         function save() {
             chart.set('metadata.visualize.' + key, dw.utils.clone(annotations));
+        }
+
+        function get(object, key = null, _default = null) {
+            if (!key) return object;
+            // expand keys
+            const keys = key.split('.');
+            let pt = object;
+
+            for (let i = 0; i < keys.length; i++) {
+                if (pt === null || pt === undefined) break; // break out of the loop
+                // move one more level in
+                pt = pt[keys[i]];
+            }
+            return pt === undefined || pt === null ? _default : pt;
         }
 
         $('.btn-add-annotation', ui).click(function() {
