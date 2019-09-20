@@ -37,7 +37,7 @@ $(function() {
                         $picker.colorselector({
                             color: curColor,
                             palette: _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff')),
-                            config: theme.colors.paletteConfig,
+                            config: theme.colors.picker,
                             change: baseColorChanged
                         });
                     });
@@ -149,7 +149,7 @@ $(function() {
                             $colPicker.colorselector({
                                 color: li.data('color'),
                                 palette: [].concat(theme.colors.palette, theme.colors.secondary),
-                                config: theme.colors.paletteConfig,
+                                config: theme.colors.picker,
                                 change: function(color) {
                                     $colPicker.css('background', color);
                                     update(color);
