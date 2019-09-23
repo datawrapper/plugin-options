@@ -113,6 +113,7 @@ require(['dw/chart/visualize/options/initCustomColors'], function(updateCustomCo
                     k = $s.parents('.color-key-color').data('key');
                 swatch.colorselector({
                     color: colorkey[k].color,
+                    config: theme.colors.picker,
                     palette: palette,
                     change: function(new_color) {
                         colorkey = clone(colorkey);

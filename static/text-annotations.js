@@ -106,6 +106,7 @@ define(function(require) {
                     if (btn.is('.btn-color')) {
                         btn.find('.color').colorselector({
                             color: a.color,
+                            config: theme.colors.picker,
                             palette: [].concat(theme.colors.palette, theme.colors.secondary),
                             change: function(col) {
                                 a.color = col;
