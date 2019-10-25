@@ -27,6 +27,10 @@ $(function() {
              * initializes the base color dropdown
              */
             function initBaseColorPicker() {
+                var showDuplicates = theme.colors.picker.showDuplicates;
+                var palette = showDuplicates
+                    ? theme.colors.palette
+                    : _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff'));
                 var curColor = chart.get('metadata.visualize.'+args.key, 0);
                 if (_.isString(curColor) && theme.colors[curColor]) curColor = theme.colors[curColor];
                 else if (!_.isString(curColor)) curColor = theme.colors.palette[curColor];
@@ -36,7 +40,7 @@ $(function() {
                     .click(function() {
                         $picker.colorselector({
                             color: curColor,
-                            palette: _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff')),
+                            palette: palette,
                             config: theme.colors.picker,
                             change: baseColorChanged
                         });
