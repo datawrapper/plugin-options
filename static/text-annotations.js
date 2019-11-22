@@ -19,14 +19,16 @@ define(function(require) {
                 theme = dw.theme(themeId);
             });
         }
-        const defaultFontSize = get(theme,'style.chart.labels.annotations.defaults.size',14);
+
+        const themeDefaults = get(theme, 'style.chart.textAnnotations', {});
+
         // default annotation settings
-        var annotation = {
+        var annotation = Object.assign({
             x: 20,
             y: 20,
             dx: 0,
             dy: 0,
-            size: defaultFontSize,
+            size: 14,
             color: theme.colors ? theme.colors.text : '#000000',
             bold: false,
             bg: false,
@@ -34,7 +36,7 @@ define(function(require) {
             underline: false,
             text: args.insertTextLabel,
             align: 'mc'
-        };
+        }, themeDefaults);
 
         var postAdd = function() {};
 
