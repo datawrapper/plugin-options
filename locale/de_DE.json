@@ -1,4 +1,6 @@
 {
+  "show-desktop": "Auf Desktops zeigen",
+  "show-mobile": "mobil zeigen",
   "custom": "benutzerdef.",
   "infotext / click-text": "Bitte in das Diagramm klicken um Text zu positionieren",
   "text-annotations / insert": "Füge deine Annotation ein"

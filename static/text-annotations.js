@@ -32,6 +32,8 @@ define(function(require) {
             color: theme.colors ? theme.colors.text : '#000000',
             bold: false,
             bg: false,
+            showMobile: true,
+            showDesktop: true,
             italic: false,
             underline: false,
             text: args.insertTextLabel,
@@ -46,6 +48,12 @@ define(function(require) {
             annotationCont.html('');
 
             annotations.forEach(function(a) {
+                if (typeof annotation.showDesktop === 'undefined' &&
+                    typeof annotation.showMobile === 'undefined') {
+                    annotation.showDesktop = true;
+                    annotation.showMobile = true;
+                }
+
                 var row = $(rowTemplate(_.extend({}, annotation, a))).appendTo(annotationCont);
                 row.get(0)._annotation = a;
             });
@@ -73,6 +81,8 @@ define(function(require) {
                 let val = this.value;
                 if ((k === 'x' || k === 'y' || k === 'size') && val === +val) val = +val;
                 if (k === 'bg') val = this.checked;
+                if (k === 'showMobile') val = this.checked;
+                if (k === 'showDesktop') val = this.checked;
                 a[k] = val;
                 save();
             }
