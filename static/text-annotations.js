@@ -1,14 +1,14 @@
 /* globals define, $, _, dw */
 define(function(require) {
     return function(args) {
-        const chart = args.chart;
-        const key = args.key;
-        let theme = chart.theme();
-        const themeId = chart.get('theme');
-        const ui = $('#vis-options-' + key);
-        const rowTemplate = _.template($('#text-annotations-row-tpl').html());
-        const annotationCont = $('.text-annotations', ui);
-        let annotations = dw.utils.clone(chart.get('metadata.visualize.' + key) || []);
+        var chart = args.chart;
+        var key = args.key;
+        var theme = chart.theme();
+        var themeId = chart.get('theme');
+        var ui = $('#vis-options-' + key);
+        var rowTemplate = _.template($('#text-annotations-row-tpl').html());
+        var annotationCont = $('.text-annotations', ui);
+        var annotations = dw.utils.clone(chart.get('metadata.visualize.' + key) || []);
 
         if (!_.isArray(annotations)) annotations = [];
 
@@ -20,7 +20,12 @@ define(function(require) {
             });
         }
 
-        const themeDefaults = get(theme, 'style.chart.textAnnotations', {});
+        var themeDefaults = theme &&
+                            theme.style &&
+                            theme.style.chart &&
+                            theme.style.chart.textAnnotations
+                            ? theme.style.chart.textAnnotations
+                            : {};
 
         // default annotation settings
         var annotation = Object.assign({
@@ -59,9 +64,9 @@ define(function(require) {
             });
 
             $('.text-alignment div:not(.bg)', annotationCont).click(function() {
-                const row = $(this).parents('.text-annotations-row');
-                const align = $(this);
-                const a = row.get(0)._annotation;
+                var row = $(this).parents('.text-annotations-row');
+                var align = $(this);
+                var a = row.get(0)._annotation;
                 a.align =
                     (align.hasClass('top') ? 't' : align.hasClass('bottom') ? 'b' : 'm') +
                     (align.hasClass('left') ? 'l' : align.hasClass('right') ? 'r' : 'c');
@@ -75,10 +80,10 @@ define(function(require) {
             $('input', annotationCont).change(onChange);
 
             function onChange() {
-                const row = $(this).parents('.text-annotations-row');
-                const a = row.get(0)._annotation;
-                const k = $(this).data('var');
-                let val = this.value;
+                var row = $(this).parents('.text-annotations-row');
+                var a = row.get(0)._annotation;
+                var k = $(this).data('var');
+                var val = this.value;
                 if ((k === 'x' || k === 'y' || k === 'size') && val === +val) val = +val;
                 if (k === 'bg') val = this.checked;
                 if (k === 'showMobile') val = this.checked;
@@ -88,12 +93,12 @@ define(function(require) {
             }
 
             $('button', annotationCont).click(function() {
-                const row = $(this).parents('.text-annotations-row');
-                const a = row.get(0)._annotation;
-                const btn = $(this);
-                const k = btn.data('var');
-                const tgl = btn.data('toggle');
-                // const val = this.value;
+                var row = $(this).parents('.text-annotations-row');
+                var a = row.get(0)._annotation;
+                var btn = $(this);
+                var k = btn.data('var');
+                var tgl = btn.data('toggle');
+                // var val = this.value;
                 if (tgl === 1) {
                     a[k] = !(a[k] || false);
                     btn.removeClass('btn-inverse');
@@ -102,7 +107,7 @@ define(function(require) {
                     if (btn.is('.btn-fs-inc')) a.size = a.size + 1;
                     if (btn.is('.btn-fs-dec')) a.size = Math.max(7, a.size - 1);
                     $('input[data-var=size]', row).val(a.size);
-                    if (btn.is('.btn-delete')) {
+                    if (btn.is('.btn-devare')) {
                         // remove annotation
                         annotations = annotations.filter(function(b) {
                             return a !== b;
@@ -119,7 +124,7 @@ define(function(require) {
                         btn.find('.color').colorselector({
                             color: a.color,
                             config: theme.colors.picker,
-                            palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                            pavarte: [].concat(theme.colors.pavarte, theme.colors.secondary),
                             change: function(col) {
                                 a.color = col;
                                 btn.find('.color').css('background', col);
@@ -138,11 +143,11 @@ define(function(require) {
 
             function pickAPoint() {
                 // console.log('pickAPoint');
-                const row = $(this).parents('.text-annotations-row');
-                const a = row.get(0)._annotation;
-                const ifr = $('#iframe-vis');
-                const iframeDoc = ifr.get(0).contentDocument;
-                const iframeChart = $('.dw-chart-body,#chart', iframeDoc);
+                var row = $(this).parents('.text-annotations-row');
+                var a = row.get(0)._annotation;
+                var ifr = $('#iframe-vis');
+                var iframeDoc = ifr.get(0).contentDocument;
+                var iframeChart = $('.dw-chart-body,#chart', iframeDoc);
 
                 iframeChart.addClass('dw-pick-coordinate');
 
@@ -171,20 +176,6 @@ define(function(require) {
         }
         function save() {
             chart.set('metadata.visualize.' + key, dw.utils.clone(annotations));
-        }
-
-        function get(object, key = null, _default = null) {
-            if (!key) return object;
-            // expand keys
-            const keys = key.split('.');
-            let pt = object;
-
-            for (let i = 0; i < keys.length; i++) {
-                if (pt === null || pt === undefined) break; // break out of the loop
-                // move one more level in
-                pt = pt[keys[i]];
-            }
-            return pt === undefined || pt === null ? _default : pt;
         }
 
         $('.btn-add-annotation', ui).click(function() {
