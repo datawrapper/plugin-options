@@ -36,7 +36,7 @@ require(['d3'], function(d3) {
             formats = [
                 { l: '2015', f: 'YYYY' },
                 { l: '2015 Q1', f: 'YYYY [Q]Q' },
-                { l: '2015/Q1', f: 'YYYY|\QQ' },
+                { l: '2015/Q1', f: 'YYYY|[Q]Q' },
                 { l: '2015 Apr', f: 'YYYY|MMM' },
                 { l: '’15', f: '’YY' },
                 { l: 'April', f: 'MMMM' },
