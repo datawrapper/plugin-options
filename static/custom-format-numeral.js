@@ -43,7 +43,7 @@ require(['d3'], function(d3) {
             formats = [
                 { l: '2018, 2019', f: 'YYYY' },
                 { l: '2019 Q1, 2019 Q2', f: 'YYYY [Q]Q' },
-                { l: '2019, Q2, Q3', f: 'YYYY|\\QQ' },
+                { l: '2019, Q2, Q3', f: 'YYYY|[Q]Q' },
                 { l: '2019, Feb, Mar', f: 'YYYY|MMM' },
                 { l: '’15', f: '’YY' },
                 { l: '01/05/2019', f: 'L' },
