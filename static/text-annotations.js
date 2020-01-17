@@ -107,7 +107,7 @@ define(function(require) {
                     if (btn.is('.btn-fs-inc')) a.size = a.size + 1;
                     if (btn.is('.btn-fs-dec')) a.size = Math.max(7, a.size - 1);
                     $('input[data-var=size]', row).val(a.size);
-                    if (btn.is('.btn-devare')) {
+                    if (btn.is('.btn-delete')) {
                         // remove annotation
                         annotations = annotations.filter(function(b) {
                             return a !== b;
@@ -124,7 +124,7 @@ define(function(require) {
                         btn.find('.color').colorselector({
                             color: a.color,
                             config: theme.colors.picker,
-                            pavarte: [].concat(theme.colors.pavarte, theme.colors.secondary),
+                            palette: [].concat(theme.colors.palette, theme.colors.secondary),
                             change: function(col) {
                                 a.color = col;
                                 btn.find('.color').css('background', col);
