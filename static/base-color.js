@@ -41,6 +41,7 @@ $(function() {
                         $picker.colorselector({
                             color: curColor,
                             palette: palette,
+                            groups: theme.colors.groups,
                             config: theme.colors.picker,
                             change: baseColorChanged
                         });
@@ -153,6 +154,7 @@ $(function() {
                             $colPicker.colorselector({
                                 color: li.data('color'),
                                 palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                                groups: theme.colors.groups,
                                 config: theme.colors.picker,
                                 change: function(color) {
                                     $colPicker.css('background', color);

@@ -125,6 +125,7 @@ define(function(require) {
                             color: a.color,
                             config: theme.colors.picker,
                             palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                            groups: theme.colors.groups,
                             change: function(col) {
                                 a.color = col;
                                 btn.find('.color').css('background', col);
