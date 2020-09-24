@@ -34,7 +34,7 @@ define(function(require) {
             dx: 0,
             dy: 0,
             size: 14,
-            color: theme.colors ? theme.colors.text : '#000000',
+            color: theme.typography && theme.typography.chart && theme.typography.chart.color ? theme.typography.chart.color : '#000000',
             bold: false,
             bg: false,
             showMobile: true,
