@@ -31,7 +31,7 @@ require(['dw/chart/visualize/options/initCustomColors'], function(updateCustomCo
             };
 
             var option = args.option,
-                palette = [].concat(theme.colors.palette, theme.colors.secondary),
+                palette = [].concat(theme.colors.palette),
                 oldColorKey = chart.get('metadata.visualize.'+args.key, {}),
                 customColors = chart.get('metadata.visualize.custom-colors', {}),
                 colorkey = {};

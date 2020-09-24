@@ -30,7 +30,7 @@ $(function() {
                 var showDuplicates = theme.colors.picker.showDuplicates;
                 var palette = showDuplicates
                     ? theme.colors.palette
-                    : _.uniq([].concat(theme.colors.palette, theme.colors.secondary).concat('#ffffff'));
+                    : _.uniq([].concat(theme.colors.palette).concat('#ffffff'));
                 var curColor = chart.get('metadata.visualize.'+args.key, 0);
                 if (_.isString(curColor) && theme.colors[curColor]) curColor = theme.colors[curColor];
                 else if (!_.isString(curColor)) curColor = theme.colors.palette[curColor];
@@ -153,7 +153,7 @@ $(function() {
                         $colPicker.off('click').on('click', function() {
                             $colPicker.colorselector({
                                 color: li.data('color'),
-                                palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                                palette: [].concat(theme.colors.palette),
                                 groups: theme.colors.groups,
                                 config: theme.colors.picker,
                                 change: function(color) {

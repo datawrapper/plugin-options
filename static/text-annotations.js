@@ -124,7 +124,7 @@ define(function(require) {
                         btn.find('.color').colorselector({
                             color: a.color,
                             config: theme.colors.picker,
-                            palette: [].concat(theme.colors.palette, theme.colors.secondary),
+                            palette: [].concat(theme.colors.palette),
                             groups: theme.colors.groups,
                             change: function(col) {
                                 a.color = col;
