@@ -1,8 +1,0 @@
-{% if option.type == 'text' %}
-
-    <label class="control-label"  for="{{ key }}">{{ option.label|raw }}</label>
-    <div class="controls form-inline">
-        <input type="text" autocomplete="off" placeholder="{{ option.placeholder }}" style="width:{% if option.width %}{{ option.width }}{% else %}auto{% endif %}" id="{{ key }}" value="" />
-    </div>
-
-{% endif %}

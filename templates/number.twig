@@ -1,8 +1,0 @@
-{% if option.type == 'number' %}
-
-    <label class="control-label">{{ option.label | raw }}:</label>
-    <div class="controls">
-        <input id="{{ key }}" style="width:28px" type="number" min="{{ option.min  }}" max="{{ option.max }}" />
-    </div>
-
-{% endif %}
